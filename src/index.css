@@ -1,0 +1,1005 @@
+body {
+  margin: 0;
+  font-weight: bold;
+  font-family: 'Quicksand', sans-serif;
+  color: #56657c;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+img{
+  margin-left: 18px;
+  margin-right: 18px;
+}
+
+.WholeSection{
+  background-image: url('Img/shadowcolor.jpg');
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  height: 595px;
+  padding: 0;
+}
+
+.SignUpSection{
+  background-color: #fff;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 555;
+  width: 500px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-top: 15px;
+}
+
+.SignUpSection img{
+  align-self: center;
+  margin-bottom: 45px;
+}
+
+.Text{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+h3{
+  font-weight: 100;
+  font-size: 20px;
+  color: #56657c;
+}
+
+a{
+  color: #56657c;
+  align-self: center;
+  font-weight: 100;
+  transition: 0.5s;
+} 
+
+a:hover{
+  color: #384251;
+}
+
+#paratwo{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 10px;
+  color: #56657c;
+  transition: 300ms;
+}
+
+#parathree{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  font-size: 14px;
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: normal;
+  color: #56657c;
+  transition: 300ms;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"]{
+  margin: 10px 10px 10px 10px;
+  padding: 10px;
+  border: 2px #56657c solid;
+  color: hsl(216, 18%, 41%);
+  outline: none;
+  transition: 300ms;
+}
+
+input[type="password"]{
+  padding: 10px;
+  margin: 10px 10px 10px 10px; 
+  border: 2px #56657c solid;
+  color: #56657c;
+  width: 420px;
+  outline: none;
+  transition: 300ms;
+}
+
+input[type="number"]{
+  transition: 300ms;
+}
+
+.password-input {
+  width: 100%;
+  max-width: 420px;
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+
+button{
+  background-color: #384251;
+  border: none;
+  padding: 10px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: 420px;
+  margin-left: 10px; 
+  color: #fff;
+  transition: 300ms;
+}
+
+button:hover{
+  background-color: #222831;
+}
+
+.CheckAndForgot{
+  padding: 0;
+  margin: 0;
+}
+
+i{
+  position: relative;
+  margin-right: 20px;
+  color: #384251;
+}
+
+
+.WholeSectionRegister{
+  display: flex;
+  justify-content: center;
+  height: 1015px;
+  padding: 0;
+}
+
+.SignUpSectionRegister{
+  background-color: #fff;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 555;
+  width: 740px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-top: 15px;
+}
+
+input[type="number"]{
+  margin: 10px 10px 10px 10px;
+  padding: 10px;
+  border: 2px #56657c solid;
+  color: hsl(216, 18%, 41%);
+  outline: none;
+}
+
+.SignUpSectionRegister img{
+  align-self: center;
+  margin-bottom: 45px;
+}
+
+input[name="firstname"]{
+  border: 2px #56657c solid;
+}  
+
+input[name="midname"]{
+  border: 2px #56657c solid;
+}  
+
+input[name="lastname"]{
+  width: 420px;
+  border: 2px #56657c solid;
+}  
+
+input[name="age"]{
+  width: 80px;
+}
+
+input[name="fulladdress"]{
+  border: 2px #56657c solid;
+  width: 320px;
+  padding-left: 8px; 
+}
+
+input[name="designation"]{
+  border: 2px #56657c solid;
+  width: 130px;
+}
+
+input[name="phone"]{
+  border: 2px #56657c solid;
+  width: 270px;
+}
+
+input[name="age"]{
+  width: 80px;
+}
+
+input[name="id"]{
+  width: 120px;
+}
+
+input[id="emailregister"]{
+  width: 280px;
+}
+
+input[placeholder="Add Password"]{
+  margin-left: -2px;
+  margin-bottom: -2px;
+  margin-top: -2px;
+  border-bottom: none;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 230px;
+}
+
+input[placeholder="Confirm Password"]{
+  padding-bottom: 15px;
+  padding-top: 15px;
+  border-top: none;
+  margin-left: -2px;
+  margin-bottom: -2px;
+  margin-top: -2px;
+  width: 230px;
+}
+
+.PlusPassword{
+  position: absolute;
+  margin-left: 440px;
+  margin-top: -162px; 
+  width: 230px;
+  border: 2px #56657c solid;
+}
+
+.Profile{
+  background-color: #99999961;
+  position: absolute;
+  width: 230px;
+  height: 142px;
+  margin-left: 440px;
+  margin-top: -330px;
+  border: 2px #56657c solid;
+}
+
+#parafour{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 10px;
+  color: #555;
+}
+
+#reggie{
+  width: 660px;
+}
+
+#btnpass{
+  width: 226px;
+  margin: 0;
+}
+
+.image-preview img {
+  width: 90px;
+  height: 90px;
+  margin-left: 65px;
+  align-self: center;
+  object-fit: cover;
+}
+
+.Extra{
+  margin-top: 10px;
+  margin-bottom: 20px; 
+}
+
+input[name="extraone"]{
+  margin: 10px 10px 0px 10px;
+  padding: 10px;
+  resize: none; 
+  border: 2px #56657c solid;
+  width: 660px;
+  outline: 0;
+}
+
+input[name="extratwo"]{
+  margin: -2px 10px 10px 10px;
+  padding: 10px;
+  resize: none;
+  border: 2px #56657c solid;
+  width: 660px;
+  outline: 0;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 12px 20px;
+  color: white;
+  background-color: #384251;
+  border: none;
+  width: 226px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.custom-file-upload:hover {
+  background-color: #222831;
+}
+
+#file-name-display {
+  margin-left: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+select{
+  margin: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 6px;
+  width: 660px;
+  border: 2px #56657c solid;
+  color: hsl(216, 18%, 41%);
+  outline: none;
+  transition: 300ms;
+}
+
+#position{
+  margin-top: -10px;
+}
+
+#region{
+  margin-bottom: 8px;
+}
+
+.navbar{
+  padding: 30px;
+}
+
+.navbar-nav a{
+  font-weight: normal;
+  color: #56657c;
+  padding-right: 60px;
+  text-decoration: none;
+}
+
+.navbar-toggler {
+  border: none;
+  width: 70px;
+}
+
+.navbar-toggler:hover {
+  background-color: #fff;
+}
+
+.navbar-toggler:active {
+  border: none;
+}
+
+#job, #farmers, #dash, #profile {
+  padding: 20px 20px; /* Optional additional padding for links */
+  text-align: center;
+  background-color: #f4f4f4;
+  width: 100%;
+  transition: 300ms;
+}
+
+#job:hover{
+  background-color: #56657c;
+  color: #fff;
+}
+
+#farmers:hover{
+  background-color: #56657c;
+  color: #fff;
+}
+
+#dash:hover{
+  background-color: #56657c;
+  color: #fff;
+}
+
+#profile:hover{
+  background-color: #56657c;
+  color: #fff;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none; /* Removes any additional focus shadows */
+}
+
+footer{
+  background-color: #56657c;
+  color: #f4f4f4;
+  text-align: center;
+  font-weight: 100;
+  padding: 30px;
+  position: static;
+  align-self: baseline;
+  width: 100%;
+  margin-top: 390px;
+}
+
+.growth{
+  font-size: 14px;
+}
+
+.growth a{
+  text-decoration: none ;
+} 
+
+@media (max-width: 700px){
+  .SignUpSectionRegister{
+    width: 580px;
+    height: 1000px;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  select{
+    margin-top: 180px;
+    width: 560px;
+  }
+
+  .PlusPassword{
+    margin-left: 340px;
+    margin-top: 20px; 
+  }
+
+  .Profile{
+    margin-left: 10px;
+    margin-top: 20px;
+    height: 152px;
+  }
+  
+  .Extra input{
+    width: 560px;
+  }
+
+  #reggie{
+    width: 560px;
+  }
+
+  #parafour{
+    width: 580px;
+  }
+
+  .FullName{
+    width: 580px;
+  }
+
+  .FullName input[name="firstname"]{
+   width: 275px;
+   margin-right: 0px;
+  }
+
+  .FullName input[name="midname"]{
+   width: 275px;
+   margin-right: 0px;
+  }
+
+  .FullName input[placeholder="Last Name"]{
+   width: 560px;
+  } 
+
+  .AddressAge{
+    width: 580px;
+  }
+
+  .AddressAge input[name="age"]{
+    width: 120px;
+  }
+
+  .AddressAge input[name="fulladdress"]{
+    width: 420px;
+  }
+
+  .PhoneDesignation{
+    width: 580px;
+  }
+
+  .PhoneDesignation input[name="phone"]{
+    width: 380px;
+  }
+
+  .PhoneDesignation input[name="designation"]{
+    width: 158px;
+  }
+
+  .IdEmailPass{
+    width: 580px;
+  }
+
+  .IdEmail{
+    width: 580px;
+  }
+
+  input[name="id"]{
+    width: 170px;
+    margin-right: 0px;
+  }
+
+  input[name="email"]{
+    width: 378px;
+    margin-right: 0px;
+  }
+}
+
+@media (max-width: 590px){
+  .SignUpSectionRegister{
+    width: 420px;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  select{
+    margin-top: 150px;
+    width: 400px;
+    font-size: 14px;
+  }
+
+  .PlusPassword{
+    width: 154px;
+    margin-left: 256px;
+    margin-top: 0px; 
+  }
+
+  .PlusPassword input{
+    width: 154px;
+    font-size: 14px;
+  }
+
+  .Profile{
+    margin-left: 10px;
+    margin-top: 0px;
+    height: 144px;
+    width: 154px;
+  }
+
+  #btnpass{
+    font-size: 14px;
+    width: 150px;
+  }
+
+  .Extra input{
+    width: 400px;
+    font-size: 11.34px;
+  }
+
+  .custom-file-upload{
+    width: 150px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 14px; 
+  }
+
+  .image-preview img{
+    height: 70px;
+    width: 70px;
+    margin-left: 35px; 
+  }
+
+  #reggie{
+    width: 400px;
+    font-size: 14px;
+  }
+
+  #parafour{
+    width: 420px;
+    font-size: 12px;
+  }
+
+  .FullName{
+    width: 420px;
+  }
+
+  .FullName input[name="firstname"]{
+   width: 195px;
+   margin-right: 0px;
+   font-size: 14px;
+  }
+
+  .FullName input[name="midname"]{
+   width: 195px;
+   margin-right: 0px;
+   font-size: 14px;
+  }
+
+  .FullName input[placeholder="Last Name"]{
+   width: 400px;
+   font-size: 14px;
+  } 
+
+  .AddressAge{
+    width: 420px;
+  }
+
+  .AddressAge input[name="age"]{
+    width: 90px;
+    font-size: 14px;
+  }
+
+  .AddressAge input[name="fulladdress"]{
+    width: 290px;
+    font-size: 14px;
+  }
+
+  .PhoneDesignation{
+    width: 420px;
+  }
+
+  .PhoneDesignation input[name="phone"]{
+    width: 220px;
+    font-size: 14px;
+  }
+
+  .PhoneDesignation input[name="designation"]{
+    width: 160px;
+    font-size: 14px;
+  }
+
+  .IdEmailPass{
+    width: 420px;
+  }
+
+  .IdEmail{
+    width: 420px;
+  }
+
+  input[name="id"]{
+    width: 120px;
+    margin-right: 0px;
+    font-size: 14px;
+  }
+
+  input[name="email"]{
+    width: 270px;
+    margin-right: 0px;
+    font-size: 14px;
+  }  
+
+  #position{
+    margin-top: -10px;
+  }
+  
+  #region{
+    margin-bottom: 6px;
+  }
+}
+
+@media (max-width: 480px){
+  .WholeSection{
+    height: 500px;
+    margin-left: 25px;
+  }
+
+  .SignUpSection{
+    align-items: center;
+    padding-top: 10px;
+    margin-top: -20px;
+    height: 600px;
+    width: 500px;
+    padding-right: 0px;
+    padding-left: 0px; 
+  }
+
+  input[type="checkbox"]{
+    height: 8px;
+    width: 8px;
+  }
+
+  .SignUpSection input[type="text"]{
+    width: 300px;
+    font-size: 14px;
+  }
+
+  .SignUpSection input[type="password"]{
+    width: 300px;
+    font-size: 14px;
+  }
+
+  .SignUpSection button{
+    width: 300px;
+  }
+
+  #parathree{
+    width: 300px;
+    font-size: 11px;
+  }
+
+  .SignUpSection button{
+    font-size: 14px;
+  }
+
+  #paratwo{
+    width: 320px;
+    font-size: 11px;
+    align-self: center;
+  }
+
+  #paratwo{
+    align-items: center;
+  }
+
+  i{
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 420px){
+  .WholeSectionRegister{
+    width: 320px;
+    margin-left: 70px;
+  }
+  .SignUpSectionRegister{
+    width: 350px;
+    padding-right: 0px;
+    padding-left: 30px;
+  }
+
+  select{
+    margin-top: 150px;
+    width: 300px;
+    font-size: 9px;
+  }
+
+  .PlusPassword{
+    width: 144px;
+    margin-left: 166px;
+    margin-top: 0px; 
+  }
+
+  .PlusPassword input{
+    width: 144px;
+    padding-bottom: 17.5px;
+    padding-top: 17.5px; 
+    font-size: 10px;
+  }
+
+  .Profile{
+    margin-left: 10px;
+    margin-top: 0px;
+    height: 135px;
+    width: 144px;
+  }
+
+  #btnpass{
+    font-size: 10px; 
+    width: 140px;
+  }
+
+  .Extra input{
+    width: 300px;
+    font-size: 8.2px;
+  }
+
+  .custom-file-upload{
+    width: 140px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 10px; 
+  }
+
+  .image-preview img{
+    height: 92px;
+    width: 92px;
+    margin-left: 25px; 
+  }
+
+  #reggie{
+    width: 300px;
+    font-size: 10px;
+  }
+
+  #parafour{
+    width: 320px;
+    font-size: 10px;
+  }
+
+  .FullName{
+    width: 320px;
+  }
+
+  .FullName input[name="firstname"]{
+   width: 145px;
+   margin-right: 0px;
+   font-size: 10px;
+  }
+
+  .FullName input[name="midname"]{
+   width: 145px;
+   margin-right: 0px;
+   font-size: 10px;
+  }
+
+  .FullName input[placeholder="Last Name"]{
+   width: 300px;
+   font-size: 10px;
+  }
+
+  .AddressAge{
+    width: 420px;
+  }
+
+  .AddressAge input[name="age"]{
+    width: 60px;
+    font-size: 10px;
+  }
+
+  .AddressAge input[name="fulladdress"]{
+    width: 220px;
+    font-size: 10px;
+  }
+
+  .PhoneDesignation{
+    width: 420px;
+  }
+
+  .PhoneDesignation input[name="phone"]{
+    width: 180px;
+    font-size: 10px;
+  }
+
+  .PhoneDesignation input[name="designation"]{
+    width: 100px;
+    font-size: 10px;
+  }
+
+  .IdEmailPass{
+    width: 420px;
+  }
+
+  .IdEmail{
+    width: 420px;
+  }
+
+  input[name="id"]{
+    width: 100px;
+    margin-right: 0px;
+    font-size: 10px;
+  }
+
+  input[name="email"]{
+    width: 190px;
+    margin-right: 0px;
+    font-size: 10px;
+  }  
+
+  #position{
+    margin-top: -10px;
+  }
+  
+  #region{
+    margin-bottom: 0px;
+  }
+}
+
+@media (max-width: 350px){
+  .WholeSection{
+    height: 500px;
+    padding-left: -30px;
+  }
+
+  .SignUpSection{
+    align-items: center;
+    padding-top: 10px;
+    margin-top: -20px;
+    height: 600px;
+    width: 500px;
+    padding-right: 0px;
+    padding-left: 0px; 
+  }
+
+  .SignUpSection input[type="text"]{
+    width: 260px;
+    font-size: 11px;
+  }
+
+  .SignUpSection input[type="password"]{
+    width: 260px;
+    font-size: 11px;
+  }
+
+  .SignUpSection button{
+    width: 260px;
+  }
+
+  #parathree{
+    width: 260px;
+    font-size: 9px;
+  }
+
+  .SignUpSection button{
+    font-size: 11px;
+  }
+
+  #paratwo{
+    width: 280px;
+    font-size: 9px;
+    align-self: center;
+  }
+
+  #paratwo{
+    align-items: center;
+  }
+
+  i{
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 260px){
+  .WholeSection{
+    margin-left: 25px;
+    width: 220px;
+  }
+
+  .SignUpSection{
+    align-items: center;
+    padding-top: 10px;
+    margin-top: -20px;
+    height: 600px;
+    width: 220px;
+    padding-right: 0px;
+    padding-left: 0px; 
+  }
+
+  .SignUpSection input[type="text"]{
+    width: 200px;
+    font-size: 11px;
+  }
+
+  .SignUpSection input[type="password"]{
+    width: 200px;
+    font-size: 10px;
+  }
+
+  .SignUpSection button{
+    width: 200px;
+  }
+
+  #parathree{
+    width: 200px;
+    font-size: 7px;
+  }
+
+  .SignUpSection button{
+    font-size: 10px;
+  }
+
+  #paratwo{
+    width: 220px;
+    font-size: 7px;
+    align-self: center;
+  }
+
+  #paratwo{
+    align-items: center;
+  }
+
+  i{
+    font-size: 11px;
+  }
+}
