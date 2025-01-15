@@ -6,7 +6,7 @@ function Navbar() {
       <div>
          <nav className="navbar navbar-light">
           <div className="container-fluid">
-            <Link className="navbar-brand" to="/JobListings"><img src="monoleg.png" height="45px" width="45px" alt="Icon Mono"/></Link>
+            <Link className="navbar-brand" to="#"><img src="monoleg.png" height="45px" width="45px" alt="Icon Mono"/></Link>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
