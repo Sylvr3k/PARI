@@ -33,7 +33,7 @@ const Register = () => {
             <div className="WholeSectionRegister">
                 <div className="SignUpSectionRegister">
                     <div className="Text">
-                        <img src="monoleg.png" height="70px" width="70px" alt="Logo" />
+                        <img src="monoleg.png" height="70px" width="70px" alt="Logo Mono" />
                     </div>
                     <div className="FormSection">
                         <form>
