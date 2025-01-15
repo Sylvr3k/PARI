@@ -8,7 +8,7 @@ const Register = () => {
         setPasswordVisible(!passwordVisible);
     };
 
-    const [fileName, setFileName] = useState('No file chosen');
+    const [setFileName] = useState('No file chosen');
     const [previewSrc, setPreviewSrc] = useState(null);
 
     const handleFileChange = (event) => {
