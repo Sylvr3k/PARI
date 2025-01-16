@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+/*import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 
 const Register = () => {
@@ -108,4 +108,138 @@ const Register = () => {
     );
 };
 
+export default Register;*/
+
+import React, { useState } from "react";
+import { Link } from 'react-router-dom';
+
+const Register = () => {
+    const [passwordVisible, setPasswordVisible] = useState(false);
+    const [previewSrc, setPreviewSrc] = useState(null);
+    const [formData, setFormData] = useState({
+        firstname: '',
+        midname: '',
+        lastname: '',
+        age: '',
+        fulladdress: '',
+        phone: '',
+        designation: '',
+        id: '',
+        email: '',
+        password: '',
+        confirmpassword: '',
+        extraone: '',
+        extratwo: '',
+        region: '',
+        position: ''
+    });
+
+    const togglePasswordVisibility = () => {
+        setPasswordVisible(!passwordVisible);
+    };
+
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setPreviewSrc(reader.result);
+            };
+            reader.readAsDataURL(file);
+        } else {
+            setPreviewSrc(null);
+        }
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // Process form submission, validate data, etc.
+        console.log("Form submitted:", formData);
+    };
+
+    return (
+        <div>
+            <div className="WholeSectionRegister">
+                <div className="SignUpSectionRegister">
+                    <div className="Text">
+                        <img src="monoleg.png" height="70px" width="70px" alt="Logo Mono" />
+                    </div>
+                    <div className="FormSection">
+                        <form onSubmit={handleSubmit}>
+                            <div className="FullName">
+                                <input type="text" name="firstname" placeholder="First Name" value={formData.firstname} onChange={handleInputChange} />
+                                <input type="text" name="midname" placeholder="Middle Name" value={formData.midname} onChange={handleInputChange} />
+                                <input type="text" name="lastname" placeholder="Last Name" value={formData.lastname} onChange={handleInputChange} />
+                            </div>
+                            <div className="AddressAge">
+                                <input type="number" name="age" placeholder="Age" value={formData.age} onChange={handleInputChange} />
+                                <input type="text" name="fulladdress" placeholder="Village/Street, Ward, District and Region" value={formData.fulladdress} onChange={handleInputChange} />
+                            </div>
+                            <div className="PhoneDesignation">
+                                <input type="text" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleInputChange} />
+                                <input type="text" name="designation" placeholder="Designation" value={formData.designation} onChange={handleInputChange} />
+                            </div>
+                            <div className="IdEmailPass">
+                                <div className="IdEmail">
+                                    <input type="text" name="id" placeholder="ID Number" value={formData.id} onChange={handleInputChange} />
+                                    <input type="email" id="emailregister" name="email" placeholder="Email Address (optional)" value={formData.email} onChange={handleInputChange} />
+                                </div>
+                                <div className="PlusPassword">
+                                    <input type={passwordVisible ? "text" : "password"} name="password" placeholder="Add Password" value={formData.password} onChange={handleInputChange} />
+                                    <input type={passwordVisible ? "text" : "password"} name="confirmpassword" placeholder="Confirm Password" value={formData.confirmpassword} onChange={handleInputChange} />
+                                    <button  id="btnpass" type="button" className="toggle-password" onClick={togglePasswordVisibility}>
+                                        {passwordVisible ? "Hide" : "Show"}
+                                    </button>
+                                </div>
+                                <div className="Profile">
+                                    <label htmlFor="profilePicture" className="custom-file-upload">
+                                        Add Passport Size
+                                    </label>
+                                    <input 
+                                        type="file" 
+                                        name="profilePicture" 
+                                        id="profilePicture" 
+                                        accept="image/*" 
+                                        style={{ display: 'none' }} 
+                                        onChange={handleFileChange} 
+                                    />
+                                    {previewSrc && (
+                                        <div className="image-preview">
+                                            <img src={previewSrc} alt="Selected Preview" />
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                            <div className="Extra">
+                                <select id="region" name="region" value={formData.region} onChange={handleInputChange}>
+                                    <option value="" disabled>Choose to Work in Your Region</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                                <select id="position" name="position" value={formData.position} onChange={handleInputChange}>
+                                    <option value="" disabled>Choose Your Position</option>
+                                    <option value="employer">Employer</option>
+                                    <option value="farmer">Farmer</option>
+                                </select>
+                                <input type="text" name="extraone" placeholder="Full Names of Village Executive Officer(VEO) and his/her Phone Number" value={formData.extraone} onChange={handleInputChange} />
+                                <input type="text" name="extratwo" placeholder="Full Names of Ward Executive Officer(WEO) and his/her Phone Number" value={formData.extratwo} onChange={handleInputChange} />
+                            </div>
+                            <button type="submit" id="reggie">Register</button>
+                        </form>
+                        <p id="parafour">
+                            Already have an account? <Link id="half" to="/">Log In here</Link>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 export default Register;
+

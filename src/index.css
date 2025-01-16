@@ -124,6 +124,16 @@ input[type="password"]{
   transition: 300ms;
 }
 
+input[type="email"]{
+  padding: 10px;
+  margin: 10px 10px 10px 10px; 
+  border: 2px #56657c solid;
+  color: #56657c;
+  width: 420px;
+  outline: none;
+  transition: 300ms;
+}
+
 input[type="number"]{
   transition: 300ms;
 }
@@ -179,7 +189,7 @@ i{
   justify-content: center;
   height: 555;
   width: 740px;
-  padding-top: 10px;
+  padding-top: 45px;
   padding-bottom: 30px;
   padding-right: 30px;
   padding-left: 30px;
@@ -356,7 +366,7 @@ input[name="extratwo"]{
 }
 
 select{
-  margin: 10px 10px 10px 10px;
+  margin: 10px 10px 8px 10px;
   padding: 10px 10px 10px 6px;
   width: 660px;
   border: 2px #56657c solid;
@@ -555,7 +565,6 @@ footer{
   }
 
   select{
-    margin-top: 150px;
     width: 400px;
     font-size: 14px;
   }
@@ -681,7 +690,7 @@ footer{
   }  
 
   #position{
-    margin-top: -10px;
+    margin-top: -14px;
   }
   
   #region{
@@ -888,11 +897,11 @@ footer{
   }  
 
   #position{
-    margin-top: -10px;
+    margin-top: -14px;
   }
   
   #region{
-    margin-bottom: 0px;
+    margin-bottom: -2px;
   }
 }
 
