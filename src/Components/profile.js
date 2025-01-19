@@ -3,7 +3,7 @@ import Navbar from './navbar';
 import Footer from './footer';
 
 function Profile() {
-  const [name, setName] = useState('John Doe');
+  /*const [name, setName] = useState('John Doe');
   const [email, setEmail] = useState('johndoe@example.com');
   const [profilePicture, setProfilePicture] = useState(null);
 
@@ -22,7 +22,7 @@ function Profile() {
     event.preventDefault();
     // Handle form submission here, like sending data to the backend
     alert('Profile updated successfully!');
-  };
+  };*/
 
   return (
     <div>
