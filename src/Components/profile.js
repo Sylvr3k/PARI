@@ -28,8 +28,7 @@ function Profile() {
     <div>
       <Navbar/>
       <div className="container mt-5">
-        <form onSubmit={handleSubmit}>
-          {/* Profile Picture Section */}
+        {/*<form onSubmit={handleSubmit}>
           <div className="mb-3">
             <input 
               type="file" 
@@ -50,7 +49,6 @@ function Profile() {
             )}
           </div>
 
-          {/* Name Section */}
           <div className="mb-3">
             <input 
               type="text" 
@@ -62,7 +60,6 @@ function Profile() {
             />
           </div>
 
-          {/* Email Section */}
           <div className="mb-3">
             <input 
               type="email" 
@@ -73,12 +70,11 @@ function Profile() {
               required 
             />
           </div>
-
-          {/* Submit Button */}
+          
           <div className="mb-3">
             <button type="submit" className="btn btn-primary">Update Profile</button>
           </div>
-        </form>
+        </form>*/}
       </div>
       <Footer/>
     </div>

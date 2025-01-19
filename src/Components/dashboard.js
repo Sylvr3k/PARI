@@ -6,9 +6,8 @@ function Dashboard() {
   return (
     <div>
     <Navbar/>  
-    <div className="container mt-5">
+    {/*<div className="container mt-5">
 
-      {/* Card example for Dashboard data */}
       <div className="row">
         <div className="col-md-4">
           <div className="card shadow-sm">
@@ -36,7 +35,6 @@ function Dashboard() {
         </div>
       </div>
 
-      {/* Example of data table */}
       <div className="mt-4">
         <h4>Recent Activities</h4>
         <table className="table table-bordered">
@@ -66,7 +64,7 @@ function Dashboard() {
           </tbody>
         </table>
       </div>
-    </div>
+    </div>*/}
     <Footer/>
     </div>
   );
