@@ -230,7 +230,7 @@ const Register = () => {
                                 <input type="text" name="extraone" placeholder="Full Names of Village Executive Officer(VEO) and his/her Phone Number" value={formData.extraone} onChange={handleInputChange} required/>
                                 <input type="text" name="extratwo" placeholder="Full Names of Ward Executive Officer(WEO) and his/her Phone Number" value={formData.extratwo} onChange={handleInputChange} required/>
                             </div>
-                            <button type="submit" id="reggie">Register</button>
+                            <button type="submit">Register</button>
                         </form>
                         <p id="parafour">
                             Already have an account? <Link id="half" to="/">Log In here</Link>

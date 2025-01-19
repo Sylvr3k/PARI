@@ -302,7 +302,7 @@ input[placeholder="Confirm Password"]{
   color: #555;
 }
 
-#reggie{
+.WholeSectionRegister button[type="submit"]{
   width: 660px;
 }
 
@@ -513,7 +513,7 @@ footer{
     width: 560px;
   }
 
-  #reggie{
+  .WholeSectionRegister button[type="submit"]{
     width: 560px;
   }
 
@@ -643,7 +643,7 @@ footer{
     margin-left: 35px; 
   }
 
-  #reggie{
+  .WholeSectionRegister button[type="submit"]{
     width: 400px;
     font-size: 14px;
   }
@@ -858,7 +858,7 @@ footer{
     margin-left: 25px; 
   }
 
-  #reggie{
+  .WholeSectionRegister button[type="submit"]{
     width: 300px;
     font-size: 10px;
   }
