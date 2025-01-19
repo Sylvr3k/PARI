@@ -3,7 +3,7 @@ import Navbar from './navbar';
 import Footer from './footer';
 
 function Profile() {
-  /*const [name, setName] = useState('John Doe');
+  const [name, setName] = useState('John Doe');
   const [email, setEmail] = useState('johndoe@example.com');
   const [profilePicture, setProfilePicture] = useState(null);
 
@@ -22,13 +22,14 @@ function Profile() {
     event.preventDefault();
     // Handle form submission here, like sending data to the backend
     alert('Profile updated successfully!');
-  };*/
+  };
 
   return (
     <div>
       <Navbar/>
       <div className="container mt-5">
-        {/*<form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
+          {/* Profile Picture Section */}
           <div className="mb-3">
             <input 
               type="file" 
@@ -49,6 +50,7 @@ function Profile() {
             )}
           </div>
 
+          {/* Name Section */}
           <div className="mb-3">
             <input 
               type="text" 
@@ -60,6 +62,7 @@ function Profile() {
             />
           </div>
 
+          {/* Email Section */}
           <div className="mb-3">
             <input 
               type="email" 
@@ -70,11 +73,12 @@ function Profile() {
               required 
             />
           </div>
-          
+
+          {/* Submit Button */}
           <div className="mb-3">
             <button type="submit" className="btn btn-primary">Update Profile</button>
           </div>
-        </form>*/}
+        </form>
       </div>
       <Footer/>
     </div>
