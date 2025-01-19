@@ -36,7 +36,7 @@ const SignIn = () => {
                                 </span>
                             </div>
                             <p id="parathree">
-                                <div className="CheckAndForgot">
+                               {/*<div className="CheckAndForgot">
                                     <input
                                         type="checkbox"
                                         id="rememberme"
@@ -45,7 +45,7 @@ const SignIn = () => {
                                     />
                                     <label>&nbsp;&nbsp;Remember Me</label>
                                 </div>
-                                <Link to="#">Forgot your password?</Link>
+                                <Link to="#">Forgot your password?</Link>*/}
                             </p>
                             <button type="submit">Sign In</button>
                         </form>

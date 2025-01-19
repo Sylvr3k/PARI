@@ -5,9 +5,9 @@ import Footer from './footer';
 
 function Farmers() {
   const farmersData = [
-    { id: 1, name: 'Jane Doe', farmName: 'Green Acres', location: 'Kigoma, Tanzania' },
-    { id: 2, name: 'John Smith', farmName: 'Sunny Hills', location: 'Morogoro, Tanzania' },
-    { id: 3, name: 'Sarah Brown', farmName: 'Mountain View', location: 'Dodoma, Tanzania' },
+    { id: 1, name: 'Jane Doe', location: 'Kigoma, Tanzania' },
+    { id: 2, name: 'John Smith', location: 'Morogoro, Tanzania' },
+    { id: 3, name: 'Sarah Brown', location: 'Dodoma, Tanzania' },
   ];
 
   return (
@@ -20,7 +20,6 @@ function Farmers() {
             <div className="card mb-4">
               <div className="card-body">
                 <h5 className="card-title">{farmer.name}</h5>
-                <h6 className="card-subtitle mb-2 text-muted">{farmer.farmName}</h6>
                 <p className="card-text">{farmer.location}</p>
                 <Link href="#" className="card-link">View Details</Link>
               </div>

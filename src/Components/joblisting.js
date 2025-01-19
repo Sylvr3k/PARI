@@ -16,20 +16,30 @@ function JobListings() {
       padding: 0,
     },
     jobItem: {
-      border: '2px #56657c solid',
-      padding: '15px',
+      backgroundColor: '#56657c',
+      color: '#fff',
+      padding: '25px 25px 25px 25px',
       margin: '20px 100px',
     },
     jobLink: {
       textDecoration: 'none',
       color: '#56657c',
       fontWeight: 'normal',
-      fontSize: '14px',
+      fontSize: '13px',
     },
     location: {
       display: 'block',
       fontSize: '0.9em',
-      color: '#555',
+      color: '#fff',
+      marginTop: '2px',
+      marginBottom: '10px',
+      fontWeight: '100',
+    },
+    viewBtn: {
+      color: '#7a91b4',
+      textDecoration: 'none',
+      fontSize: '13px',
+      marginTop: '30px',
     },
   };
 
@@ -40,12 +50,15 @@ function JobListings() {
         <div className="Jobs">
           <ul className="JobList" style={styles.jobList}>
             {jobs.map(job => (
+              <Link to={`/job/${job.id}`} style={styles.jobLink}>
               <li key={job.id} style={styles.jobItem}>
-                <Link to={`/job/${job.id}`} style={styles.jobLink}>
-                  {job.title}
+
+                  <span style={styles.title}>{job.title}</span>
                   <span style={styles.location}>{job.location}</span>
-                </Link>
+                  <Link style={styles.viewBtn} to="#">View Details</Link>
+
               </li>
+              </Link>
             ))}
           </ul>
         </div>

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Navbar from './navbar';
+import Footer from './footer';
 
 function Profile() {
   const [name, setName] = useState('John Doe');
@@ -23,64 +25,62 @@ function Profile() {
   };
 
   return (
-    <div className="container mt-5">
-      <h1>Profile</h1>
-      <p className="lead">Update your profile details below:</p>
+    <div>
+      <Navbar/>
+      <div className="container mt-5">
+        <form onSubmit={handleSubmit}>
+          {/* Profile Picture Section */}
+          <div className="mb-3">
+            <input 
+              type="file" 
+              className="form-control" 
+              id="profilePicture" 
+              onChange={handleProfilePictureChange} 
+              accept="image/*" 
+            />
+            {profilePicture && (
+              <div className="mt-3">
+                <img 
+                  src={profilePicture} 
+                  alt="Profile" 
+                  className="img-fluid rounded-circle" 
+                  style={{ width: '150px', height: '150px' }} 
+                />
+              </div>
+            )}
+          </div>
 
-      <form onSubmit={handleSubmit}>
-        {/* Profile Picture Section */}
-        <div className="mb-3">
-          <label htmlFor="profilePicture" className="form-label">Profile Picture</label>
-          <input 
-            type="file" 
-            className="form-control" 
-            id="profilePicture" 
-            onChange={handleProfilePictureChange} 
-            accept="image/*" 
-          />
-          {profilePicture && (
-            <div className="mt-3">
-              <img 
-                src={profilePicture} 
-                alt="Profile" 
-                className="img-fluid rounded-circle" 
-                style={{ width: '150px', height: '150px' }} 
-              />
-            </div>
-          )}
-        </div>
+          {/* Name Section */}
+          <div className="mb-3">
+            <input 
+              type="text" 
+              className="form-control" 
+              id="name" 
+              value={name} 
+              onChange={(e) => setName(e.target.value)} 
+              required 
+            />
+          </div>
 
-        {/* Name Section */}
-        <div className="mb-3">
-          <label htmlFor="name" className="form-label">Name</label>
-          <input 
-            type="text" 
-            className="form-control" 
-            id="name" 
-            value={name} 
-            onChange={(e) => setName(e.target.value)} 
-            required 
-          />
-        </div>
+          {/* Email Section */}
+          <div className="mb-3">
+            <input 
+              type="email" 
+              className="form-control" 
+              id="email" 
+              value={email} 
+              onChange={(e) => setEmail(e.target.value)} 
+              required 
+            />
+          </div>
 
-        {/* Email Section */}
-        <div className="mb-3">
-          <label htmlFor="email" className="form-label">Email</label>
-          <input 
-            type="email" 
-            className="form-control" 
-            id="email" 
-            value={email} 
-            onChange={(e) => setEmail(e.target.value)} 
-            required 
-          />
-        </div>
-
-        {/* Submit Button */}
-        <div className="mb-3">
-          <button type="submit" className="btn btn-primary">Update Profile</button>
-        </div>
-      </form>
+          {/* Submit Button */}
+          <div className="mb-3">
+            <button type="submit" className="btn btn-primary">Update Profile</button>
+          </div>
+        </form>
+      </div>
+      <Footer/>
     </div>
   );
 }
