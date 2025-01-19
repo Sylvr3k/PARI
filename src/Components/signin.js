@@ -13,13 +13,13 @@ const SignIn = () => {
             <div className="WholeSection">
                 <div className="SignUpSection">
                     <div className="Text">
-                        <img src="monoleg.png" height="70px" width="70px" alt="Logo Mono " />
+                        <img src="monoleg.png" height="70px" width="70px" alt="Logo Mono "/>
                     </div>
                     <div className="FormSection">
                         <form>
-                            <input type="text" name="emailornumber" placeholder="Email Address Or Phone Number" />
+                            <input type="text" name="emailornumber" placeholder="Email Address Or Phone Number" required/>
                             <div class="passwordclass" style={{ position: "relative" }}>
-                                <input type={passwordVisible ? "text" : "password"} name="password" placeholder="Password" className="password-input"/>
+                                <input type={passwordVisible ? "text" : "password"} name="password" placeholder="Password" className="password-input" required/>
                                 <span onClick={togglePasswordVisibility}
                                     style={{
                                         position: "absolute",

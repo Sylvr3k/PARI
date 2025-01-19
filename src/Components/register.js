@@ -172,26 +172,26 @@ const Register = () => {
                     <div className="FormSection">
                         <form onSubmit={handleSubmit}>
                             <div className="FullName">
-                                <input type="text" name="firstname" placeholder="First Name" value={formData.firstname} onChange={handleInputChange} />
-                                <input type="text" name="midname" placeholder="Middle Name" value={formData.midname} onChange={handleInputChange} />
-                                <input type="text" name="lastname" placeholder="Last Name" value={formData.lastname} onChange={handleInputChange} />
+                                <input type="text" name="firstname" placeholder="First Name" value={formData.firstname} onChange={handleInputChange} required/>
+                                <input type="text" name="midname" placeholder="Middle Name" value={formData.midname} onChange={handleInputChange} required/>
+                                <input type="text" name="lastname" placeholder="Last Name" value={formData.lastname} onChange={handleInputChange} required/>
                             </div>
                             <div className="AddressAge">
-                                <input type="number" name="age" placeholder="Age" value={formData.age} onChange={handleInputChange} />
-                                <input type="text" name="fulladdress" placeholder="Village/Street, Ward, District and Region" value={formData.fulladdress} onChange={handleInputChange} />
+                                <input type="number" name="age" placeholder="Age" value={formData.age} onChange={handleInputChange} required/>
+                                <input type="text" name="fulladdress" placeholder="Village/Street, Ward, District and Region" value={formData.fulladdress} onChange={handleInputChange} required/>
                             </div>
                             <div className="PhoneDesignation">
-                                <input type="text" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleInputChange} />
-                                <input type="text" name="designation" placeholder="Designation" value={formData.designation} onChange={handleInputChange} />
+                                <input type="text" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleInputChange} required/>
+                                <input type="text" name="designation" placeholder="Designation" value={formData.designation} onChange={handleInputChange} required/>
                             </div>
                             <div className="IdEmailPass">
                                 <div className="IdEmail">
-                                    <input type="text" name="id" placeholder="ID Number" value={formData.id} onChange={handleInputChange} />
+                                    <input type="text" name="id" placeholder="ID Number" value={formData.id} onChange={handleInputChange} required/>
                                     <input type="email" id="emailregister" name="email" placeholder="Email Address (optional)" value={formData.email} onChange={handleInputChange} />
                                 </div>
                                 <div className="PlusPassword">
-                                    <input type={passwordVisible ? "text" : "password"} name="password" placeholder="Add Password" value={formData.password} onChange={handleInputChange} />
-                                    <input type={passwordVisible ? "text" : "password"} name="confirmpassword" placeholder="Confirm Password" value={formData.confirmpassword} onChange={handleInputChange} />
+                                    <input type={passwordVisible ? "text" : "password"} name="password" placeholder="Add Password" value={formData.password} onChange={handleInputChange} required/>
+                                    <input type={passwordVisible ? "text" : "password"} name="confirmpassword" placeholder="Confirm Password" value={formData.confirmpassword} onChange={handleInputChange} required/>
                                     <button  id="btnpass" type="button" className="toggle-password" onClick={togglePasswordVisibility}>
                                         {passwordVisible ? "Hide" : "Show"}
                                     </button>
@@ -206,7 +206,8 @@ const Register = () => {
                                         id="profilePicture" 
                                         accept="image/*" 
                                         style={{ display: 'none' }} 
-                                        onChange={handleFileChange} 
+                                        onChange={handleFileChange}
+                                        required 
                                     />
                                     {previewSrc && (
                                         <div className="image-preview">
@@ -216,18 +217,18 @@ const Register = () => {
                                 </div>
                             </div>
                             <div className="Extra">
-                                <select id="region" name="region" value={formData.region} onChange={handleInputChange}>
+                                <select id="region" name="region" value={formData.region} onChange={handleInputChange} required>
                                     <option value="" disabled>Choose to Work in Your Region</option>
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
                                 </select>
-                                <select id="position" name="position" value={formData.position} onChange={handleInputChange}>
+                                <select id="position" name="position" value={formData.position} onChange={handleInputChange} required>
                                     <option value="" disabled>Choose Your Position</option>
                                     <option value="employer">Employer</option>
                                     <option value="farmer">Farmer</option>
                                 </select>
-                                <input type="text" name="extraone" placeholder="Full Names of Village Executive Officer(VEO) and his/her Phone Number" value={formData.extraone} onChange={handleInputChange} />
-                                <input type="text" name="extratwo" placeholder="Full Names of Ward Executive Officer(WEO) and his/her Phone Number" value={formData.extratwo} onChange={handleInputChange} />
+                                <input type="text" name="extraone" placeholder="Full Names of Village Executive Officer(VEO) and his/her Phone Number" value={formData.extraone} onChange={handleInputChange} required/>
+                                <input type="text" name="extratwo" placeholder="Full Names of Ward Executive Officer(WEO) and his/her Phone Number" value={formData.extratwo} onChange={handleInputChange} required/>
                             </div>
                             <button type="submit" id="reggie">Register</button>
                         </form>
