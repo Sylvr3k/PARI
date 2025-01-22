@@ -111,9 +111,11 @@ const Register = () => {
 export default Register;*/
 
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import API_BASE_URL from "../config";  // Import the API base URL
 
 const Register = () => {
+    const navigate = useNavigate();
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [previewSrc, setPreviewSrc] = useState(null);
     const [formData, setFormData] = useState({
@@ -156,12 +158,35 @@ const Register = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        // Process form submission, validate data, etc.
-        console.log("Form submitted:", formData);
-    };
+        
+        if (formData.password !== formData.confirmpassword) {
+            alert("Passwords do not match!");
+            return;
+        }
 
+        try {
+            const response = await fetch(`${API_BASE_URL}/register`, {  // Use the centralized URL
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                alert('Registration successful!');
+                navigate('/');  // Redirect to login page
+            } else {
+                const errorData = await response.json();
+                alert(`Registration failed: ${errorData.message || 'Unknown error'}`);
+            }
+        } catch (error) {
+            alert(`Error: ${error.message}`);
+        }
+    };
+     
     return (
         <div>
             <div className="WholeSectionRegister">
