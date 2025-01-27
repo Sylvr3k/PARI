@@ -218,7 +218,7 @@ const Register = () => {
                                 <div className="PlusPassword">
                                     <input type={passwordVisible ? "text" : "password"} name="password" placeholder="Add Password" value={formData.password} onChange={handleInputChange} required />
                                     <input type={passwordVisible ? "text" : "password"} name="confirmpassword" placeholder="Confirm Password" value={formData.confirmpassword} onChange={handleInputChange} required />
-                                    <button type="button" className="toggle-password" onClick={togglePasswordVisibility}>
+                                    <button id="btnpass" type="button" className="toggle-password" onClick={togglePasswordVisibility}>
                                         {passwordVisible ? "Hide" : "Show"}
                                     </button>
                                 </div>
