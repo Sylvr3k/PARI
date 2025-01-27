@@ -10,12 +10,13 @@ const userSchema = new mongoose.Schema({
   phone: { type: String, required: true, unique: true },
   designation: { type: String, required: true },
   id: { type: String, required: true, unique: true },
-  email: { type: String },
+  email: { type: String, required: false },
   password: { type: String, required: true },
-  profilePicture: { type: String },
-  workRegion: { type: String, required: true },
-  veoDetails: { type: String, required: true },
-  weoDetails: { type: String, required: true },
+  profilePicture: { type: String, required: false }, // Will store Base64 or URL
+  region: { type: String, required: true },
+  position: { type: String, required: true },
+  veoDetails: { type: String, required: true }, // Maps to "extraone"
+  weoDetails: { type: String, required: true }, // Maps to "extratwo"
 });
 
 // Hash password before saving
