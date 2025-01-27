@@ -112,7 +112,7 @@ export default Register;*/
 
 import React, { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
-import API_BASE_URL from "../config";  // Import the API base URL
+import API_BASE_URL from "../config"; // Ensure this file contains the correct base URL
 
 const Register = () => {
     const navigate = useNavigate();
@@ -133,7 +133,7 @@ const Register = () => {
         extraone: '',
         extratwo: '',
         region: '',
-        position: ''
+        position: '',
     });
 
     const togglePasswordVisibility = () => {
@@ -146,6 +146,7 @@ const Register = () => {
             const reader = new FileReader();
             reader.onloadend = () => {
                 setPreviewSrc(reader.result);
+                setFormData((prev) => ({ ...prev, profilePicture: reader.result }));
             };
             reader.readAsDataURL(file);
         } else {
@@ -160,14 +161,14 @@ const Register = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        
+
         if (formData.password !== formData.confirmpassword) {
             alert("Passwords do not match!");
             return;
         }
 
         try {
-            const response = await fetch(`${API_BASE_URL}/register`, {  // Use the centralized URL
+            const response = await fetch(`${API_BASE_URL}/api/register`, { // Ensure the endpoint matches your server's route
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -177,7 +178,7 @@ const Register = () => {
 
             if (response.ok) {
                 alert('Registration successful!');
-                navigate('/');  // Redirect to login page
+                navigate('/'); // Redirect to the login page
             } else {
                 const errorData = await response.json();
                 alert(`Registration failed: ${errorData.message || 'Unknown error'}`);
@@ -186,7 +187,7 @@ const Register = () => {
             alert(`Error: ${error.message}`);
         }
     };
-     
+
     return (
         <div>
             <div className="WholeSectionRegister">
@@ -197,27 +198,27 @@ const Register = () => {
                     <div className="FormSection">
                         <form onSubmit={handleSubmit}>
                             <div className="FullName">
-                                <input type="text" name="firstname" placeholder="First Name" value={formData.firstname} onChange={handleInputChange} required/>
-                                <input type="text" name="midname" placeholder="Middle Name" value={formData.midname} onChange={handleInputChange} required/>
-                                <input type="text" name="lastname" placeholder="Last Name" value={formData.lastname} onChange={handleInputChange} required/>
+                                <input type="text" name="firstname" placeholder="First Name" value={formData.firstname} onChange={handleInputChange} required />
+                                <input type="text" name="midname" placeholder="Middle Name" value={formData.midname} onChange={handleInputChange} required />
+                                <input type="text" name="lastname" placeholder="Last Name" value={formData.lastname} onChange={handleInputChange} required />
                             </div>
                             <div className="AddressAge">
-                                <input type="number" name="age" placeholder="Age" value={formData.age} onChange={handleInputChange} required/>
-                                <input type="text" name="fulladdress" placeholder="Village/Street, Ward, District and Region" value={formData.fulladdress} onChange={handleInputChange} required/>
+                                <input type="number" name="age" placeholder="Age" value={formData.age} onChange={handleInputChange} required />
+                                <input type="text" name="fulladdress" placeholder="Village/Street, Ward, District and Region" value={formData.fulladdress} onChange={handleInputChange} required />
                             </div>
                             <div className="PhoneDesignation">
-                                <input type="text" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleInputChange} required/>
-                                <input type="text" name="designation" placeholder="Designation" value={formData.designation} onChange={handleInputChange} required/>
+                                <input type="text" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleInputChange} required />
+                                <input type="text" name="designation" placeholder="Designation" value={formData.designation} onChange={handleInputChange} required />
                             </div>
                             <div className="IdEmailPass">
                                 <div className="IdEmail">
-                                    <input type="text" name="id" placeholder="ID Number" value={formData.id} onChange={handleInputChange} required/>
+                                    <input type="text" name="id" placeholder="ID Number" value={formData.id} onChange={handleInputChange} required />
                                     <input type="email" id="emailregister" name="email" placeholder="Email Address (optional)" value={formData.email} onChange={handleInputChange} />
                                 </div>
                                 <div className="PlusPassword">
-                                    <input type={passwordVisible ? "text" : "password"} name="password" placeholder="Add Password" value={formData.password} onChange={handleInputChange} required/>
-                                    <input type={passwordVisible ? "text" : "password"} name="confirmpassword" placeholder="Confirm Password" value={formData.confirmpassword} onChange={handleInputChange} required/>
-                                    <button  id="btnpass" type="button" className="toggle-password" onClick={togglePasswordVisibility}>
+                                    <input type={passwordVisible ? "text" : "password"} name="password" placeholder="Add Password" value={formData.password} onChange={handleInputChange} required />
+                                    <input type={passwordVisible ? "text" : "password"} name="confirmpassword" placeholder="Confirm Password" value={formData.confirmpassword} onChange={handleInputChange} required />
+                                    <button type="button" className="toggle-password" onClick={togglePasswordVisibility}>
                                         {passwordVisible ? "Hide" : "Show"}
                                     </button>
                                 </div>
@@ -225,14 +226,14 @@ const Register = () => {
                                     <label htmlFor="profilePicture" className="custom-file-upload">
                                         Add Passport Size
                                     </label>
-                                    <input 
-                                        type="file" 
-                                        name="profilePicture" 
-                                        id="profilePicture" 
-                                        accept="image/*" 
-                                        style={{ display: 'none' }} 
+                                    <input
+                                        type="file"
+                                        name="profilePicture"
+                                        id="profilePicture"
+                                        accept="image/*"
+                                        style={{ display: 'none' }}
                                         onChange={handleFileChange}
-                                        required 
+                                        required
                                     />
                                     {previewSrc && (
                                         <div className="image-preview">
@@ -252,8 +253,8 @@ const Register = () => {
                                     <option value="employer">Employer</option>
                                     <option value="farmer">Farmer</option>
                                 </select>
-                                <input type="text" name="extraone" placeholder="Full Names of Village Executive Officer(VEO) and his/her Phone Number" value={formData.extraone} onChange={handleInputChange} required/>
-                                <input type="text" name="extratwo" placeholder="Full Names of Ward Executive Officer(WEO) and his/her Phone Number" value={formData.extratwo} onChange={handleInputChange} required/>
+                                <input type="text" name="extraone" placeholder="VEO's Name & Phone" value={formData.extraone} onChange={handleInputChange} required />
+                                <input type="text" name="extratwo" placeholder="WEO's Name & Phone" value={formData.extratwo} onChange={handleInputChange} required />
                             </div>
                             <button type="submit">Register</button>
                         </form>
@@ -268,4 +269,3 @@ const Register = () => {
 };
 
 export default Register;
-
