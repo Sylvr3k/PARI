@@ -6,20 +6,27 @@ require('dotenv').config();
 const app = express();
 
 // Middleware
-app.use(cors());
-app.use(express.json()); // Replacing bodyParser.json() (express has built-in body parsing from version 4.16.0 onwards)
+app.use(express.json()); // Parse incoming JSON data
 
-// Mongoose connection with improved settings
-mongoose.set('strictQuery', false); // Suppresses deprecation warnings for mongoose
+// CORS Configuration
+const corsOptions = {
+    origin: 'https://parifarmers.netlify.app', // Replace with your actual Netlify URL
+    methods: ['GET', 'POST'], // Allow GET and POST requests
+    allowedHeaders: ['Content-Type'], // Allow Content-Type header
+};
+app.use(cors(corsOptions)); // Use CORS with the configured options
+
+// Mongoose connection
+mongoose.set('strictQuery', false); // Suppresses deprecation warnings
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDB'))
     .catch((error) => {
         console.error('Connection error:', error);
-        process.exit(1); // Exit the process if the connection fails
+        process.exit(1); // Exit process on connection failure
     });
 
 // Import Routes
-const registerRoute = require('./routes/register'); // Ensure the path to 'register' is correct
+const registerRoute = require('./routes/register'); // Ensure path to 'register' is correct
 app.use('/api/register', registerRoute);
 
 // Handle undefined routes
@@ -27,7 +34,6 @@ app.use((req, res) => {
     res.status(404).json({ error: 'Route not found' });
 });
 
-// Server
+// Start Server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
