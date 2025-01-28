@@ -244,7 +244,7 @@ const Register = () => {
                             </div>
                             <div className="Extra">
                                 <select id="region" name="region" value={formData.region} onChange={handleInputChange} required>
-                                    <option value="" disabled>Choose to Work in Your Region</option>
+                                    <option value="" disabled>Choose to Work Outside Your Region</option>
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
                                 </select>
