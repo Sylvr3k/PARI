@@ -1,9 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
+
+// Middleware to allow larger request bodies (adjust the limit as needed)
+app.use(bodyParser.json({ limit: '10mb' })); // Increase the limit here if needed
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 
 // Middleware
 app.use(express.json()); // Parse incoming JSON data
