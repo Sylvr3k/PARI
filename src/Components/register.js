@@ -167,6 +167,8 @@ const Register = () => {
             return;
         }
 
+        console.log("Form Data Before Sending:", formData); // Debugging Line
+
         try {
             const response = await fetch(`${API_BASE_URL}/api/register`, { // Ensure the endpoint matches your server's route
                 method: 'POST',
