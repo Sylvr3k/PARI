@@ -132,7 +132,7 @@ const Register = () => {
         confirmpassword: '',
         extraone: '',
         extratwo: '',
-        region: '',
+        region: 'no',
         position: '',
     });
 
