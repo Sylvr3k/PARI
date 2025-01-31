@@ -26,7 +26,7 @@ router.post('/', async (req, res) => {
       email,
       password,
       profilePicture, // Ensure the model accepts base64-encoded strings for profile pictures
-      workRegion: region, // Map region field
+      region, // Map region field
       veoDetails: extraone, // Map extraone to VEO details
       weoDetails: extratwo, // Map extratwo to WEO details
       position, // Added position to user object
