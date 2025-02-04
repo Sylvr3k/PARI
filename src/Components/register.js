@@ -111,31 +111,29 @@ const Register = () => {
 export default Register;*/
 
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import API_BASE_URL from "../config";
+import { Link, useNavigate } from 'react-router-dom';
+import API_BASE_URL from "../config"; // Ensure this file contains the correct base URL
 
 const Register = () => {
     const navigate = useNavigate();
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [previewSrc, setPreviewSrc] = useState(null);
-    const [error, setError] = useState("");
-
     const [formData, setFormData] = useState({
-        firstname: "",
-        midname: "",
-        lastname: "",
-        age: "",
-        fulladdress: "",
-        phone: "",
-        designation: "",
-        id: "",
-        email: "",
-        password: "",
-        confirmpassword: "",
-        extraone: "",
-        extratwo: "",
-        region: "",
-        position: "",
+        firstname: '',
+        midname: '',
+        lastname: '',
+        age: '',
+        fulladdress: '',
+        phone: '',
+        designation: '',
+        id: '',
+        email: '',
+        password: '',
+        confirmpassword: '',
+        extraone: '',
+        extratwo: '',
+        region: '',
+        position: '',
     });
 
     const togglePasswordVisibility = () => {
@@ -163,56 +161,32 @@ const Register = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        setError(""); // Reset error before validation
 
-        // Validate age
-        const age = Number(formData.age);
-        if (isNaN(age) || age < 18) {
-            setError("You must be at least 18 years old to register.");
-            return;
-        }
-
-        // Validate passwords
         if (formData.password !== formData.confirmpassword) {
-            setError("Passwords do not match!");
+            alert("Passwords Do Not Match!");
             return;
         }
+
+        console.log("Form Data Before Sending:", formData); // Debugging Line
 
         try {
-            // Check if email already exists
-            const emailCheckResponse = await fetch(`${API_BASE_URL}/api/check-email`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email: formData.email }),
-            });
-
-            const emailCheckData = await emailCheckResponse.json();
-            if (!emailCheckResponse.ok) {
-                setError(emailCheckData.message || "Error checking email.");
-                return;
-            }
-
-            if (emailCheckData.exists) {
-                setError("This email is already registered. Please log in.");
-                return;
-            }
-
-            // Proceed with registration
-            const response = await fetch(`${API_BASE_URL}/api/register`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
+            const response = await fetch(`${API_BASE_URL}/api/register`, { // Ensure the endpoint matches your server's route
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
                 body: JSON.stringify(formData),
             });
 
-            const data = await response.json();
             if (response.ok) {
-                alert("Registration successful!");
-                navigate("/"); // Redirect to login
+                alert('Registration successful!');
+                navigate('/'); // Redirect to the login page
             } else {
-                setError(data.message || "Registration failed.");
+                const errorData = await response.json();
+                alert(`Registration failed: ${errorData.message || 'Unknown error'}`);
             }
         } catch (error) {
-            setError(`Error: ${error.message}`);
+            alert(`Error: ${error.message}`);
         }
     };
 
@@ -224,7 +198,6 @@ const Register = () => {
                         <img src="monoleg.png" height="70px" width="70px" alt="Logo Mono" />
                     </div>
                     <div className="FormSection">
-                        {error && <p className="error-message">{error}</p>}
                         <form onSubmit={handleSubmit}>
                             <div className="FullName">
                                 <input type="text" name="firstname" placeholder="First Name" value={formData.firstname} onChange={handleInputChange} required />
@@ -260,7 +233,7 @@ const Register = () => {
                                         name="profilePicture"
                                         id="profilePicture"
                                         accept="image/*"
-                                        style={{ display: "none" }}
+                                        style={{ display: 'none' }}
                                         onChange={handleFileChange}
                                         required
                                     />
