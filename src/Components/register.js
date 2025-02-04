@@ -163,7 +163,7 @@ const Register = () => {
         event.preventDefault();
 
         if (formData.password !== formData.confirmpassword) {
-            alert("Passwords do not match!");
+            alert("Passwords Do Not Match!");
             return;
         }
 
