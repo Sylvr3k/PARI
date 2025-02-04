@@ -111,29 +111,31 @@ const Register = () => {
 export default Register;*/
 
 import React, { useState } from "react";
-import { Link, useNavigate } from 'react-router-dom';
-import API_BASE_URL from "../config"; // Ensure this file contains the correct base URL
+import { Link, useNavigate } from "react-router-dom";
+import API_BASE_URL from "../config";
 
 const Register = () => {
     const navigate = useNavigate();
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [previewSrc, setPreviewSrc] = useState(null);
+    const [error, setError] = useState("");
+
     const [formData, setFormData] = useState({
-        firstname: '',
-        midname: '',
-        lastname: '',
-        age: '',
-        fulladdress: '',
-        phone: '',
-        designation: '',
-        id: '',
-        email: '',
-        password: '',
-        confirmpassword: '',
-        extraone: '',
-        extratwo: '',
-        region: '',
-        position: '',
+        firstname: "",
+        midname: "",
+        lastname: "",
+        age: "",
+        fulladdress: "",
+        phone: "",
+        designation: "",
+        id: "",
+        email: "",
+        password: "",
+        confirmpassword: "",
+        extraone: "",
+        extratwo: "",
+        region: "",
+        position: "",
     });
 
     const togglePasswordVisibility = () => {
@@ -161,32 +163,56 @@ const Register = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setError(""); // Reset error before validation
 
-        if (formData.password !== formData.confirmpassword) {
-            alert("Passwords Do Not Match!");
+        // Validate age
+        const age = Number(formData.age);
+        if (isNaN(age) || age < 18) {
+            setError("You must be at least 18 years old to register.");
             return;
         }
 
-        console.log("Form Data Before Sending:", formData); // Debugging Line
+        // Validate passwords
+        if (formData.password !== formData.confirmpassword) {
+            setError("Passwords do not match!");
+            return;
+        }
 
         try {
-            const response = await fetch(`${API_BASE_URL}/api/register`, { // Ensure the endpoint matches your server's route
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+            // Check if email already exists
+            const emailCheckResponse = await fetch(`${API_BASE_URL}/api/check-email`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email: formData.email }),
+            });
+
+            const emailCheckData = await emailCheckResponse.json();
+            if (!emailCheckResponse.ok) {
+                setError(emailCheckData.message || "Error checking email.");
+                return;
+            }
+
+            if (emailCheckData.exists) {
+                setError("This email is already registered. Please log in.");
+                return;
+            }
+
+            // Proceed with registration
+            const response = await fetch(`${API_BASE_URL}/api/register`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
             });
 
+            const data = await response.json();
             if (response.ok) {
-                alert('Registration successful!');
-                navigate('/'); // Redirect to the login page
+                alert("Registration successful!");
+                navigate("/"); // Redirect to login
             } else {
-                const errorData = await response.json();
-                alert(`Registration failed: ${errorData.message || 'Unknown error'}`);
+                setError(data.message || "Registration failed.");
             }
         } catch (error) {
-            alert(`Error: ${error.message}`);
+            setError(`Error: ${error.message}`);
         }
     };
 
@@ -198,6 +224,7 @@ const Register = () => {
                         <img src="monoleg.png" height="70px" width="70px" alt="Logo Mono" />
                     </div>
                     <div className="FormSection">
+                        {error && <p className="error-message">{error}</p>}
                         <form onSubmit={handleSubmit}>
                             <div className="FullName">
                                 <input type="text" name="firstname" placeholder="First Name" value={formData.firstname} onChange={handleInputChange} required />
@@ -233,7 +260,7 @@ const Register = () => {
                                         name="profilePicture"
                                         id="profilePicture"
                                         accept="image/*"
-                                        style={{ display: 'none' }}
+                                        style={{ display: "none" }}
                                         onChange={handleFileChange}
                                         required
                                     />
