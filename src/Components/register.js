@@ -154,9 +154,16 @@ const Register = () => {
         }
     };
 
-    const handleInputChange = (e) => {
+    const handleInputChange = async (e) => {
         const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+        
+        if (name === "id") {
+            // Hash the ID number when entered
+            const hashedId = await bcrypt.hash(value, 10);
+            setFormData({ ...formData, [name]: hashedId });
+        } else {
+            setFormData({ ...formData, [name]: value });
+        }
     };
 
     const handleAgeValidation = (e) => {
