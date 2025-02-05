@@ -175,7 +175,7 @@ const Register = () => {
         event.preventDefault();
 
         if (formData.id.length !== 20) {
-            alert("NIDA ID must be exactly 20 digits!");
+            alert("Invalid NIDA Number");
             return;
         }
 
