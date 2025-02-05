@@ -111,38 +111,37 @@ const Register = () => {
 export default Register;*/
 
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import API_BASE_URL from "../config";
+import { Link, useNavigate } from 'react-router-dom';
+import API_BASE_URL from "../config"; // Ensure this file contains the correct base URL
 
 const Register = () => {
     const navigate = useNavigate();
-    const [error, setError] = useState("");
+    const [passwordVisible, setPasswordVisible] = useState(false);
     const [previewSrc, setPreviewSrc] = useState(null);
     const [formData, setFormData] = useState({
-        firstname: "",
-        midname: "",
-        lastname: "",
-        age: "",
-        fulladdress: "",
-        phone: "",
-        designation: "",
-        id: "",
-        email: "",
-        password: "",
-        confirmpassword: "",
-        extraone: "",
-        extratwo: "",
-        region: "",
-        position: ""
+        firstname: '',
+        midname: '',
+        lastname: '',
+        age: '',
+        fulladdress: '',
+        phone: '',
+        designation: '',
+        id: '',
+        email: '',
+        password: '',
+        confirmpassword: '',
+        extraone: '',
+        extratwo: '',
+        region: '',
+        position: '',
     });
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+    const togglePasswordVisibility = () => {
+        setPasswordVisible(!passwordVisible);
     };
 
-    const handleFileChange = (e) => {
-        const file = e.target.files[0];
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
         if (file) {
             const reader = new FileReader();
             reader.onloadend = () => {
@@ -150,71 +149,123 @@ const Register = () => {
                 setFormData((prev) => ({ ...prev, profilePicture: reader.result }));
             };
             reader.readAsDataURL(file);
+        } else {
+            setPreviewSrc(null);
         }
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setError("");
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
 
-        const age = Number(formData.age);
-        if (isNaN(age) || age < 18) {
-            setError("You must be at least 18 years old to register.");
-            return;
-        }
-        
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
         if (formData.password !== formData.confirmpassword) {
-            setError("Passwords do not match!");
+            alert("Passwords Do Not Match!");
             return;
         }
+
+        console.log("Form Data Before Sending:", formData); // Debugging Line
 
         try {
-            const emailCheckResponse = await fetch(`${API_BASE_URL}/api/check-email`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email: formData.email })
+            const response = await fetch(`${API_BASE_URL}/api/register`, { // Ensure the endpoint matches your server's route
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
             });
-            const emailCheckData = await emailCheckResponse.json();
 
-            if (emailCheckData.exists) {
-                setError("This email is already registered.");
-                return;
-            }
-
-            const response = await fetch(`${API_BASE_URL}/api/register`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData)
-            });
-            const data = await response.json();
-            
             if (response.ok) {
-                alert("Registration successful!");
-                navigate("/");
+                alert('Registration successful!');
+                navigate('/'); // Redirect to the login page
             } else {
-                setError(data.message || "Registration failed.");
+                const errorData = await response.json();
+                alert(`Registration failed: ${errorData.message || 'Unknown error'}`);
             }
         } catch (error) {
-            setError("An error occurred. Please try again.");
+            alert(`Error: ${error.message}`);
         }
     };
 
     return (
-        <div className="register-container">
-            <h2>Register</h2>
-            {error && <p className="error-message">{error}</p>}
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="firstname" placeholder="First Name" value={formData.firstname} onChange={handleInputChange} required />
-                <input type="text" name="lastname" placeholder="Last Name" value={formData.lastname} onChange={handleInputChange} required />
-                <input type="number" name="age" placeholder="Age" value={formData.age} onChange={handleInputChange} required />
-                <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleInputChange} required />
-                <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleInputChange} required />
-                <input type="password" name="confirmpassword" placeholder="Confirm Password" value={formData.confirmpassword} onChange={handleInputChange} required />
-                <input type="file" name="profilePicture" onChange={handleFileChange} required />
-                {previewSrc && <img src={previewSrc} alt="Preview" className="image-preview" />}
-                <button type="submit">Register</button>
-            </form>
-            <p>Already have an account? <Link to="/">Log in</Link></p>
+        <div>
+            <div className="WholeSectionRegister">
+                <div className="SignUpSectionRegister">
+                    <div className="Text">
+                        <img src="monoleg.png" height="70px" width="70px" alt="Logo Mono" />
+                    </div>
+                    <div className="FormSection">
+                        <form onSubmit={handleSubmit}>
+                            <div className="FullName">
+                                <input type="text" name="firstname" placeholder="First Name" value={formData.firstname} onChange={handleInputChange} required />
+                                <input type="text" name="midname" placeholder="Middle Name" value={formData.midname} onChange={handleInputChange} required />
+                                <input type="text" name="lastname" placeholder="Last Name" value={formData.lastname} onChange={handleInputChange} required />
+                            </div>
+                            <div className="AddressAge">
+                                <input type="number" name="age" placeholder="Age" value={formData.age} onChange={handleInputChange} required />
+                                <input type="text" name="fulladdress" placeholder="Village/Street, Ward, District and Region" value={formData.fulladdress} onChange={handleInputChange} required />
+                            </div>
+                            <div className="PhoneDesignation">
+                                <input type="text" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleInputChange} required />
+                                <input type="text" name="designation" placeholder="Designation" value={formData.designation} onChange={handleInputChange} required />
+                            </div>
+                            <div className="IdEmailPass">
+                                <div className="IdEmail">
+                                    <input type="text" name="id" placeholder="ID Number" value={formData.id} onChange={handleInputChange} required />
+                                    <input type="email" id="emailregister" name="email" placeholder="Email Address (optional)" value={formData.email} onChange={handleInputChange} />
+                                </div>
+                                <div className="PlusPassword">
+                                    <input type={passwordVisible ? "text" : "password"} name="password" placeholder="Add Password" value={formData.password} onChange={handleInputChange} required />
+                                    <input type={passwordVisible ? "text" : "password"} name="confirmpassword" placeholder="Confirm Password" value={formData.confirmpassword} onChange={handleInputChange} required />
+                                    <button id="btnpass" type="button" className="toggle-password" onClick={togglePasswordVisibility}>
+                                        {passwordVisible ? "Hide" : "Show"}
+                                    </button>
+                                </div>
+                                <div className="Profile">
+                                    <label htmlFor="profilePicture" className="custom-file-upload">
+                                        Add Passport Size
+                                    </label>
+                                    <input
+                                        type="file"
+                                        name="profilePicture"
+                                        id="profilePicture"
+                                        accept="image/*"
+                                        style={{ display: 'none' }}
+                                        onChange={handleFileChange}
+                                        required
+                                    />
+                                    {previewSrc && (
+                                        <div className="image-preview">
+                                            <img src={previewSrc} alt="Selected Preview" />
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                            <div className="Extra">
+                                <select id="region" name="region" value={formData.region} onChange={handleInputChange} required>
+                                    <option value="" disabled>Choose to Work Outside Your Region</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                                <select id="position" name="position" value={formData.position} onChange={handleInputChange} required>
+                                    <option value="" disabled>Choose Your Position</option>
+                                    <option value="employer">Employer</option>
+                                    <option value="farmer">Farmer</option>
+                                </select>
+                                <input type="text" name="extraone" placeholder="VEO's Name & Phone" value={formData.extraone} onChange={handleInputChange} required />
+                                <input type="text" name="extratwo" placeholder="WEO's Name & Phone" value={formData.extratwo} onChange={handleInputChange} required />
+                            </div>
+                            <button type="submit">Register</button>
+                        </form>
+                        <p id="parafour">
+                            Already have an account? <Link id="half" to="/">Log In here</Link>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
