@@ -156,6 +156,14 @@ const Register = () => {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
+
+
+        // Prevent age from being below 18
+        if (name === "age" && value < 18) {
+            alert("You must be at least 18 years old to register.");
+            return;
+        }
+    
         setFormData({ ...formData, [name]: value });
     };
 
