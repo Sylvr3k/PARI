@@ -158,14 +158,6 @@ const Register = () => {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-
-        // Ensure NIDA ID is exactly 20 digits
-        if (name === "id") {
-            if (!/^\d{0,20}$/.test(value)) {
-                return; // Prevent input if it's not numeric or exceeds 20 digits
-            }
-        }
-    
         setFormData({ ...formData, [name]: value });
     };
 
@@ -181,6 +173,11 @@ const Register = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        if (formData.id.length !== 20) {
+            alert("NIDA ID must be exactly 20 digits!");
+            return;
+        }
 
         if (formData.password !== formData.confirmpassword) {
             alert("Passwords Do Not Match!");
