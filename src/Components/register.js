@@ -159,13 +159,10 @@ const Register = () => {
     const handleInputChange = (e) => {
         const { name, value } = e.target;
 
+        // Ensure NIDA ID is exactly 20 digits
         if (name === "id") {
-            if (value.length > 20) {
-                return; // Prevents input longer than 20 digits
-            }
-            if (value.length === 20 && !/^\d{20}$/.test(value)) {
-                alert("Invalid NIDA number! It must be exactly 20 digits and contain only numbers.");
-                return;
+            if (!/^\d{0,20}$/.test(value)) {
+                return; // Prevent input if it's not numeric or exceeds 20 digits
             }
         }
     
