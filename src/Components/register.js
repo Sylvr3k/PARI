@@ -140,8 +140,14 @@ const Register = () => {
         setPasswordVisible(!passwordVisible);
     };
 
+    const isValidNIDA = (nidaNumber) => {
+        const nidaRegex = /^\d{20}$/; // Ensures exactly 20 digits
+        return nidaRegex.test(nidaNumber);
+    };
+
     const handleFileChange = (event) => {
         const file = event.target.files[0];
+
         if (file) {
             const reader = new FileReader();
             reader.onloadend = () => {
@@ -152,10 +158,17 @@ const Register = () => {
         } else {
             setPreviewSrc(null);
         }
+
     };
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
+
+        if (name === "id" && !isValidNIDA(value)) {
+            alert("Invalid NIDA number! It must be exactly 20 digits.");
+            return;
+        }
+
         setFormData({ ...formData, [name]: value });
     };
 
