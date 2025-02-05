@@ -140,11 +140,6 @@ const Register = () => {
         setPasswordVisible(!passwordVisible);
     };
 
-    const isValidNIDA = (nidaNumber) => {
-        const nidaRegex = /^\d{20}$/; // Ensures exactly 20 digits
-        return nidaRegex.test(nidaNumber);
-    };
-
     const handleFileChange = (event) => {
         const file = event.target.files[0];
 
