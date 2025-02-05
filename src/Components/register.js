@@ -275,7 +275,7 @@ const Register = () => {
                                 <input type="text" name="extraone" placeholder="VEO's Name & Phone" value={formData.extraone} onChange={handleInputChange} required />
                                 <input type="text" name="extratwo" placeholder="WEO's Name & Phone" value={formData.extratwo} onChange={handleInputChange} required />
                             </div>
-                            <button type="submit">Register</button>
+                            <button type="submit" id="reggie">Register</button>
                         </form>
                         <p id="parafour">
                             Already have an account? <Link id="half" to="/">Log In here</Link>
