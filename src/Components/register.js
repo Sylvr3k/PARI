@@ -156,16 +156,18 @@ const Register = () => {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-
-
-        // Prevent age from being below 18
-        if (name === "age" && value < 18) {
-            alert("You must be at least 18 years old to register.");
-            return;
-        }
-    
         setFormData({ ...formData, [name]: value });
     };
+
+    const handleAgeValidation = (e) => {
+        const age = parseInt(e.target.value, 10);
+        
+        if (age < 18) {
+            alert("You must be at least 18 years old to register.");
+            setFormData((prev) => ({ ...prev, age: "" })); // Reset input
+        }
+    };
+    
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -213,7 +215,7 @@ const Register = () => {
                                 <input type="text" name="lastname" placeholder="Last Name" value={formData.lastname} onChange={handleInputChange} required />
                             </div>
                             <div className="AddressAge">
-                                <input type="number" name="age" placeholder="Age" value={formData.age} onChange={handleInputChange} required />
+                                <input type="number" name="age" placeholder="Age" value={formData.age} onChange={handleInputChange}  onBlur={handleAgeValidation} min="18"  required />
                                 <input type="text" name="fulladdress" placeholder="Village/Street, Ward, District and Region" value={formData.fulladdress} onChange={handleInputChange} required />
                             </div>
                             <div className="PhoneDesignation">
