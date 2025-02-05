@@ -10,8 +10,11 @@ router.post('/', async (req, res) => {
 
   try {
     // Check if the user already exists using phone or ID
-    const existingUser = await User.findOne({ phone, email });
+    const existingUser = await User.findOne({ phone });
     if (existingUser) return res.status(400).json({ message: 'User already exists' });
+
+    const emailUser = await User.findOne({ email });
+    if (emailUser) return res.status(400).json({ message: 'E-mail has already been used' });
 
     // Create a new user object
     const newUser = new User({
