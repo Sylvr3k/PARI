@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import API_BASE_URL from "../config";
+import API_BASE_URL from "../config"; // Ensure this contains your backend URL
 
 const SignIn = () => {
     const [emailOrNumber, setEmailOrNumber] = useState("");
@@ -31,12 +31,9 @@ const SignIn = () => {
                 return;
             }
 
-            // Store token in local storage
-            localStorage.setItem("token", data.token);
+            localStorage.setItem("token", data.token); // Store token
 
-            // Redirect to farmers page
-            navigate("/farmers");
-
+            navigate("/farmers"); // Redirect after login
         } catch (err) {
             setError("Server error. Try again later.");
             console.error(err);
