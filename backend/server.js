@@ -34,6 +34,9 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 const registerRoute = require('./routes/register'); // Ensure path to 'register' is correct
 app.use('/api/register', registerRoute);
 
+const authRoutes = require('./routes/auth');
+app.use('/api/auth', authRoutes);
+
 // Handle undefined routes
 app.use((req, res) => {
     res.status(404).json({ error: 'Route not found' });
