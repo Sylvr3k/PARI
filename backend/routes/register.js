@@ -16,6 +16,9 @@ router.post('/', async (req, res) => {
     const emailUser = await User.findOne({ email });
     if (emailUser) return res.status(400).json({ message: 'E-mail has already been used' });
     
+    const idUser = await User.findOne({ id });
+    if (idUser) return res.status(400).json({ message: 'Your ID is not available at this time' });
+
     // Create a new user object
     const newUser = new User({
       firstname,
