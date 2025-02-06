@@ -6,6 +6,7 @@ import JobListings from "./Components/joblisting";
 import Farmers from "./Components/farmers";
 import Dashboard from "./Components/dashboard";
 import Profile from "./Components/profile";
+import ProtectedRoute from "./Components/protected";
 import API_BASE_URL from "./config"; // Import the centralized URL
 
 const App = () => {
@@ -38,7 +39,9 @@ const App = () => {
           path="/JobListings" 
           element={<JobListings jobListings={jobListings} error={error} />} 
         />
-        <Route path="/Farmers" element={<Farmers />} />
+                <Route element={<ProtectedRoute />}>
+                    <Route path="/farmers" element={<Farmers />} />
+                </Route>
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/Profile" element={<Profile />} />
       </Routes>
