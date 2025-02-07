@@ -162,9 +162,21 @@ button:hover{
   background-color: #222831;
 }
 
+.FormSection button{
+  margin-top:  10px;
+}
+
 .CheckAndForgot{
   padding: 0;
   margin: 0;
+}
+
+#err{
+  font-size: 14px;
+  color: red;
+  font-weight: 100;
+  margin-right: 10px;
+  margin-left: 10px; 
 }
 
 i{

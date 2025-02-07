@@ -85,7 +85,7 @@ const SignIn = () => {
                                 </span>
                             </div>
 
-                            {error && <p style={{ color: "red" }}>{error}</p>}
+                            {error && <p id="err">{error}</p>}
 
                             <button type="submit">Sign In</button>
                         </form>
