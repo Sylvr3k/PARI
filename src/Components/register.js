@@ -223,7 +223,13 @@ const Register = () => {
                             </div>
                             <div className="AddressAge">
                                 <input type="number" name="age" placeholder="Age" value={formData.age} onChange={handleInputChange}  onBlur={handleAgeValidation} min="18"  required />
-                                <input type="text" name="fulladdress" placeholder="Village/Street, Ward, District and Region" value={formData.fulladdress} onChange={handleInputChange} required />
+                                <input type="text" name="region" placeholder="Region"/>
+                                   <div className="FullAdress">
+                                       <input id="fad" type="text" name="district" placeholder="District"/>
+                                       <input id="fad" type="text" name="ward" placeholder="Ward"/>
+                                       <input id="fad"type="text" name="village" placeholder="Village"/>
+                                       <input id="fad" type="text" name="street" placeholder="Street"/>
+                                   </div>
                             </div>
                             <div className="PhoneDesignation">
                                 <input type="text" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleInputChange} required />

@@ -172,11 +172,25 @@ button:hover{
 }
 
 #err{
+  text-align: center;
   font-size: 14px;
   color: #384251;
   font-weight: 100;
   margin-right: 10px;
   margin-left: 10px; 
+}
+
+#fad{
+  margin: -1px;
+  width: 106.8px;
+}
+
+input[name="region"]{
+  width: 320px;
+}
+
+.FullAdress{
+  margin: 10px;
 }
 
 i{
@@ -227,6 +241,7 @@ input[name="firstname"]{
 
 input[name="midname"]{
   border: 2px #56657c solid;
+  width: 440px;
 }  
 
 input[name="lastname"]{
@@ -505,6 +520,15 @@ footer{
     padding-left: 0px;
   }
 
+  #fad{
+    margin: -1px;
+    width: 141.4px;
+  }
+
+  input[name="region"]{
+    width: 398px;
+  }
+
   select{
     margin-top: 180px;
     width: 560px;
@@ -556,7 +580,7 @@ footer{
   }
 
   .AddressAge input[name="age"]{
-    width: 120px;
+    width: 140px;
   }
 
   .AddressAge input[name="fulladdress"]{
@@ -607,6 +631,17 @@ footer{
     width: 420px;
     padding-right: 0px;
     padding-left: 0px;
+  }
+ 
+  #fad{
+    margin: -1px;
+    width: 101.5px;
+    font-size: 14px;
+  }
+
+  input[name="region"]{
+    width: 290px;
+    font-size: 14px;
   }
 
   select{
@@ -815,6 +850,7 @@ footer{
     width: 320px;
     margin-left: 70px;
   }
+
   .SignUpSectionRegister{
     width: 350px;
     padding-right: 0px;
@@ -824,7 +860,18 @@ footer{
   select{
     margin-top: 150px;
     width: 300px;
-    font-size: 9px;
+    font-size: 10px;
+  }
+
+  #fad{
+    margin: -1px;
+    width: 77px;
+    font-size: 10px;
+  }
+
+  input[name="region"]{
+    width: 220.5px;
+    font-size: 10px;
   }
 
   .PlusPassword{
