@@ -655,6 +655,10 @@ footer{
     margin-top: 0px; 
   }
 
+  select[ id="region"]{
+    margin-top: 150px;
+  }
+
   .PlusPassword input{
     width: 154px;
     font-size: 14px;
@@ -863,13 +867,17 @@ footer{
     font-size: 10px;
   }
 
+  select[ id="region"]{
+    margin-top: 140px;
+  }
+
   #fad{
     margin: -1px;
     width: 77px;
     font-size: 10px;
   }
 
-  input[name="region"]{
+  input[name="regions"]{
     width: 220.5px;
     font-size: 10px;
   }
