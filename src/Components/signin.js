@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import API_BASE_URL from "../config"; // Ensure this contains your backend URL
 
 const SignIn = () => {
-    const [emailOrNumber, setEmailOrNumber] = useState("");
+    const [phone, setPhone] = useState("");
     const [password, setPassword] = useState("");
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [error, setError] = useState("");
@@ -17,22 +17,27 @@ const SignIn = () => {
         e.preventDefault();
         setError("");
 
+        // Validate phone number format
+        if (!/^\+255\d{9}$/.test(phone)) {
+            setError("Invalid phone number format. Use +255XXXXXXXXX.");
+            return;
+        }
+
         try {
             const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ emailOrPhone: emailOrNumber, password }),
+                body: JSON.stringify({ phone, password }),
             });
 
             const data = await response.json();
 
             if (!response.ok) {
-                setError(data.message || "Login failed");
+                setError(data.message || "Login failed.");
                 return;
             }
 
             localStorage.setItem("token", data.token); // Store token
-
             navigate("/farmers"); // Redirect after login
         } catch (err) {
             setError("Server error. Try again later.");
@@ -45,16 +50,16 @@ const SignIn = () => {
             <div className="WholeSection">
                 <div className="SignUpSection">
                     <div className="Text">
-                        <img src="monoleg.png" height="70px" width="70px" alt="Logo Mono "/>
+                        <img src="monoleg.png" height="70px" width="70px" alt="Logo Mono" />
                     </div>
                     <div className="FormSection">
                         <form onSubmit={handleSubmit}>
                             <input
-                                type="text"
-                                name="emailornumber"
-                                placeholder="Email Address Or Phone Number"
-                                value={emailOrNumber}
-                                onChange={(e) => setEmailOrNumber(e.target.value)}
+                                type="tel"
+                                name="phone"
+                                placeholder="Enter your phone number"
+                                value={phone}
+                                onChange={(e) => setPhone(e.target.value)}
                                 required
                             />
                             <div className="passwordclass" style={{ position: "relative" }}>
@@ -91,7 +96,7 @@ const SignIn = () => {
                         </form>
                         <p id="paratwo">
                             Don't have an account?
-                            <Link to="/Register">Sign Up here and get started</Link>
+                            <Link to="/Register"> Sign Up here and get started</Link>
                         </p>
                     </div>
                 </div>

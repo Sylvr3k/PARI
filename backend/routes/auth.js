@@ -5,24 +5,42 @@ const User = require('../models/User');
 
 const router = express.Router();
 
-// Login Route
+// Function to normalize phone number
+const normalizePhoneNumber = (phone) => {
+    // Remove spaces or dashes if present
+    phone = phone.replace(/\s|-/g, '');
+
+    // If starts with '07' or '06', convert to international format
+    if (phone.startsWith('07')) {
+        return '+255' + phone.slice(1); // Converts '07xxxxxx' -> '+2557xxxxxx'
+    }
+    if (phone.startsWith('06')) {
+        return '+255' + phone.slice(1); // Converts '06xxxxxx' -> '+2556xxxxxx'
+    }
+
+    // If already in +255 format, return as is
+    return phone;
+};
+
+// Login Route (Phone Number Only)
 router.post('/login', async (req, res) => {
-    const { emailOrPhone, password } = req.body;
+    let { phone, password } = req.body;
 
     try {
-        // Check if user exists with email or phone
-        const user = await User.findOne({ 
-            $or: [{ email: emailOrPhone }, { phone: emailOrPhone }]
-        });
+        // Normalize phone number
+        phone = normalizePhoneNumber(phone);
+
+        // Find user by normalized phone number
+        const user = await User.findOne({ phone });
 
         if (!user) {
-            return res.status(400).json({ message: 'Invalid credentials' });
+            return res.status(400).json({ message: 'Invalid phone number or password' });
         }
 
         // Check if password matches
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            return res.status(400).json({ message: 'Invalid credentials' });
+            return res.status(400).json({ message: 'Invalid phone number or password' });
         }
 
         // Generate JWT Token
@@ -38,7 +56,6 @@ router.post('/login', async (req, res) => {
                 id: user._id,
                 firstname: user.firstname,
                 lastname: user.lastname,
-                email: user.email,
                 phone: user.phone,
                 position: user.position
             }
