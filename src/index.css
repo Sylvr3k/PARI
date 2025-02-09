@@ -185,7 +185,7 @@ button:hover{
   width: 106.8px;
 }
 
-input[name="region"]{
+input[name="regions"]{
   width: 320px;
 }
 
@@ -241,7 +241,7 @@ input[name="firstname"]{
 
 input[name="midname"]{
   border: 2px #56657c solid;
-  width: 440px;
+  width: 200px;
 }  
 
 input[name="lastname"]{
@@ -313,9 +313,9 @@ input[placeholder="Confirm Password"]{
   background-color: #99999961;
   position: absolute;
   width: 230px;
-  height: 142px;
+  height: 202px;
   margin-left: 440px;
-  margin-top: -330px;
+  margin-top: -395px;
   border: 2px #56657c solid;
 }
 
@@ -339,9 +339,9 @@ input[placeholder="Confirm Password"]{
 }
 
 .image-preview img {
-  width: 90px;
-  height: 90px;
-  margin-left: 65px;
+  width: 150px;
+  height: 150px;
+  margin-left: 37px;
   align-self: center;
   object-fit: cover;
 }
@@ -515,7 +515,7 @@ footer{
 @media (max-width: 700px){
   .SignUpSectionRegister{
     width: 580px;
-    height: 1000px;
+    height: 1200px;
     padding-right: 0px;
     padding-left: 0px;
   }
@@ -525,7 +525,7 @@ footer{
     width: 141.4px;
   }
 
-  input[name="region"]{
+  input[name="regions"]{
     width: 398px;
   }
 
@@ -639,7 +639,7 @@ footer{
     font-size: 14px;
   }
 
-  input[name="region"]{
+  input[name="regions"]{
     width: 290px;
     font-size: 14px;
   }
@@ -674,7 +674,7 @@ footer{
 
   .Extra input{
     width: 400px;
-    font-size: 11.34px;
+    font-size: 14px;
   }
 
   .custom-file-upload{

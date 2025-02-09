@@ -4,7 +4,7 @@ const User = require('../models/User');
 
 router.post('/', async (req, res) => {
   const {
-    firstname, midname, lastname, age, fulladdress, phone, designation,
+    firstname, midname, lastname, age, regions, district, ward, village, street, phone, designation,
     id, email, password, profilePicture, region, extraone, extratwo, position
   } = req.body;
 
@@ -22,7 +22,11 @@ router.post('/', async (req, res) => {
       midname,
       lastname,
       age,
-      fulladdress,
+      regions,
+      district,
+      ward,
+      village,
+      street,
       phone,
       designation,
       id,

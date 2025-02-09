@@ -123,7 +123,11 @@ const Register = () => {
         midname: '',
         lastname: '',
         age: '',
-        fulladdress: '',
+        regions: '',
+        district: '',
+        ward: '',
+        village: '',
+        street: '',
         phone: '',
         designation: '',
         id: '',
@@ -222,13 +226,13 @@ const Register = () => {
                                 <input type="text" name="lastname" placeholder="Last Name" value={formData.lastname} onChange={handleInputChange} required />
                             </div>
                             <div className="AddressAge">
-                                <input type="number" name="age" placeholder="Age" value={formData.age} onChange={handleInputChange}  onBlur={handleAgeValidation} min="18"  required />
-                                <input type="text" name="region" placeholder="Region"/>
+                                <input type="number" name="age" placeholder="Age" value={formData.age} onChange={handleInputChange} onBlur={handleAgeValidation} min="18"  required />
+                                <input type="text" name="regions" placeholder="Region" value={formData.regions} onChange={handleInputChange} required/>
                                    <div className="FullAdress">
-                                       <input id="fad" type="text" name="district" placeholder="District"/>
-                                       <input id="fad" type="text" name="ward" placeholder="Ward"/>
-                                       <input id="fad"type="text" name="village" placeholder="Village"/>
-                                       <input id="fad" type="text" name="street" placeholder="Street"/>
+                                       <input id="fad" type="text" name="district" placeholder="District" value={formData.district} onChange={handleInputChange} required/>
+                                       <input id="fad" type="text" name="ward" placeholder="Ward" value={formData.ward} onChange={handleInputChange} required/>
+                                       <input id="fad"type="text" name="village" placeholder="Village" value={formData.village} onChange={handleInputChange} required/>
+                                       <input id="fad" type="text" name="street" placeholder="Street" value={formData.street} onChange={handleInputChange} required/>
                                    </div>
                             </div>
                             <div className="PhoneDesignation">
