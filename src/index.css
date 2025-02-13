@@ -274,7 +274,7 @@ input[placeholder="Designation"]{
   width: 140px;
 }
 
-input[name="phonetwo"]{
+#phonetwo{
   border: 2px #56657c solid;
   width: 260px;
 }
@@ -601,7 +601,7 @@ footer{
     width: 580px;
   }
 
-  .PhoneDesignation input[name="phonetwo"]{
+  .PhoneDesignation #phonetwo{
     width: 380px;
   }
 
@@ -753,7 +753,7 @@ footer{
     width: 420px;
   }
 
-  .PhoneDesignation input[name="phonetwo"]{
+  .PhoneDesignation #phonetwo{
     width: 220px;
     font-size: 14px;
   }
@@ -984,7 +984,7 @@ footer{
     width: 420px;
   }
 
-  .PhoneDesignation input[name="phonetwo"]{
+  .PhoneDesignation #phonetwo{
     width: 180px;
     font-size: 10px;
   }

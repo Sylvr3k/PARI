@@ -236,7 +236,7 @@ const Register = () => {
                                    </div>
                             </div>
                             <div className="PhoneDesignation">
-                                <input type="text" name="phonetwo" placeholder="Phone Number" value={formData.phone} onChange={handleInputChange} required />
+                                <input id="phonetwo" type="text" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleInputChange} required />
                                 <input type="text" name="designation" placeholder="Designation" value={formData.designation} onChange={handleInputChange} required />
                             </div>
                             <div className="IdEmailPass">
