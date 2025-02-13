@@ -236,12 +236,12 @@ const Register = () => {
                                    </div>
                             </div>
                             <div className="PhoneDesignation">
-                                <input id="phonetwo" type="text" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleInputChange} required />
+                                <input id="phonetwo" type="text" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleInputChange} onInput={(e) => e.target.value = e.target.value.replace(/\D/, '')} pattern="\d*" required />
                                 <input type="text" name="designation" placeholder="Designation" value={formData.designation} onChange={handleInputChange} required />
                             </div>
                             <div className="IdEmailPass">
                                 <div className="IdEmail">
-                                    <input type="text" name="id" placeholder="ID Number" value={formData.id} onChange={handleInputChange} required />
+                                    <input type="text" name="id" placeholder="ID Number" value={formData.id} onChange={handleInputChange} onInput={(e) => e.target.value = e.target.value.replace(/\D/, '')} pattern="\d*" required />
                                     <input type="email" id="emailregister" name="email" placeholder="Email Address (optional)" value={formData.email} onChange={handleInputChange} />
                                 </div>
                                 <div className="PlusPassword">
