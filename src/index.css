@@ -134,6 +134,16 @@ input[type="email"]{
   transition: 300ms;
 }
 
+input[placeholder="Phone Number"]{
+  padding: 10px;
+  margin: 10px 10px 10px 10px; 
+  border: 2px #56657c solid;
+  color: #56657c;
+  width: 300px;
+  outline: none;
+  transition: 300ms;
+}
+
 input[type="number"]{
   transition: 300ms;
 }

@@ -55,9 +55,9 @@ const SignIn = () => {
                     <div className="FormSection">
                         <form onSubmit={handleSubmit}>
                             <input
-                                type="tel"
+                                type="text"
                                 name="phone"
-                                placeholder="Enter your phone number"
+                                placeholder="Phone Number"
                                 value={phone}
                                 onChange={(e) => setPhone(e.target.value)}
                                 required
