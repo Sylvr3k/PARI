@@ -112,6 +112,7 @@ export default Register;*/
 
 import React, { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
+import { parsePhoneNumberFromString } from 'libphonenumber-js';
 import API_BASE_URL from "../config"; // Ensure this file contains the correct base URL
 
 const Register = () => {
@@ -218,13 +219,23 @@ const Register = () => {
 
     const handlePhoneNumberInput = (e) => {
         let value = e.target.value;
-      
-        // Remove anything that isn't a number, +, or - (adjust as needed)
+    
+        // Allow only numbers, +, -, (), and spaces
         value = value.replace(/[^0-9+\-() ]/g, '');
-      
-        // Set the cleaned value to your input
-        e.target.value = value;
-    };
+    
+        // Parse and validate phone number using libphonenumber-js
+        const phoneNumber = parsePhoneNumberFromString(value, 'TZ'); // 'TZ' for Tanzania
+    
+        if (phoneNumber && phoneNumber.isValid()) {
+            value = phoneNumber.formatInternational(); // Format the number properly
+        }
+    
+        // Update state with cleaned & validated phone number
+        setFormData((prevData) => ({
+            ...prevData,
+            phone: value
+        }));
+    }
 
     return (
         <div>
@@ -259,6 +270,7 @@ const Register = () => {
                                     value={formData.phone}
                                     onChange={handleInputChange}
                                     onInput={handlePhoneNumberInput}
+                                    maxLength="13"
                                     required
                                 />
                                 <input type="text" name="designation" placeholder="Designation" value={formData.designation} onChange={handleInputChange} required />
@@ -273,6 +285,7 @@ const Register = () => {
                                         onChange={handleInputChange}
                                         onInput={(e) => e.target.value = e.target.value.replace(/\D/g, '')}
                                         pattern="\d*"
+                                        maxLength="20"
                                         required
                                     />
                                     <input type="email" id="emailregister" name="email" placeholder="Email Address (optional)" value={formData.email} onChange={handleInputChange} />
@@ -312,8 +325,8 @@ const Register = () => {
                                 </select>
                                 <select id="position" name="position" value={formData.position} onChange={handleInputChange} required>
                                     <option value="" disabled>Choose Your Position</option>
-                                    <option value="employer">Employer</option>
-                                    <option value="farmer">Farmer</option>
+                                    <option value="government organization/non government organization/farmer">Government Organization/Non Government Organization/Farmer</option>
+                                    <option value="skilled agricultural labourer">Skilled Agricultural Labourer</option>
                                 </select>
                                 <input type="text" name="extraone" placeholder="VEO's Name & Phone" value={formData.extraone} onChange={handleInputChange} required />
                                 <input type="text" name="extratwo" placeholder="WEO's Name & Phone" value={formData.extratwo} onChange={handleInputChange} required />
