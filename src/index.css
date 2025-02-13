@@ -139,7 +139,7 @@ input[placeholder="Phone Number"]{
   margin: 10px 10px 10px 10px; 
   border: 2px #56657c solid;
   color: #56657c;
-  width: 300px;
+  width: 420px;
   outline: none;
   transition: 300ms;
 }
@@ -269,14 +269,14 @@ input[name="fulladdress"]{
   padding-left: 8px; 
 }
 
-input[name="designation"]{
+input[placeholder="Designation"]{
   border: 2px #56657c solid;
-  width: 130px;
+  width: 140px;
 }
 
-input[name="phone"]{
+input[name="phonetwo"]{
   border: 2px #56657c solid;
-  width: 270px;
+  width: 260px;
 }
 
 input[name="age"]{
@@ -601,7 +601,7 @@ footer{
     width: 580px;
   }
 
-  .PhoneDesignation input[name="phone"]{
+  .PhoneDesignation input[name="phonetwo"]{
     width: 380px;
   }
 
@@ -753,7 +753,7 @@ footer{
     width: 420px;
   }
 
-  .PhoneDesignation input[name="phone"]{
+  .PhoneDesignation input[name="phonetwo"]{
     width: 220px;
     font-size: 14px;
   }
@@ -984,7 +984,7 @@ footer{
     width: 420px;
   }
 
-  .PhoneDesignation input[name="phone"]{
+  .PhoneDesignation input[name="phonetwo"]{
     width: 180px;
     font-size: 10px;
   }
