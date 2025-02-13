@@ -184,7 +184,7 @@ const Register = () => {
         }
 
         if (formData.phone.length !== 10 && formData.phone.length !== 13) {
-            alert("Invalid NIDA Number");
+            alert("Invalid Phone Number");
             return;
         }
 
