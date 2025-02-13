@@ -17,12 +17,12 @@ const SignIn = () => {
         e.preventDefault();
         setError("");
 
-        // Validate phone number format
-        if (!/^\+255\d{9}$/.test(phone)) {
-            setError("Invalid phone number format. Use +255XXXXXXXXX.");
+        if (phone.length !== 10 && phone.length !== 13) {
+            alert("Phone number must be 10 or 13 digits long.");
             return;
-        }
+        }          
 
+        // Validate phone number format
         try {
             const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
                 method: "POST",
@@ -45,6 +45,16 @@ const SignIn = () => {
         }
     };
 
+    const handlePhoneNumberInput = (e) => {
+        let value = e.target.value;
+      
+        // Remove anything that isn't a number, +, or - (adjust as needed)
+        value = value.replace(/[^0-9+\-() ]/g, '');
+      
+        // Set the cleaned value to your input
+        e.target.value = value;
+    };
+
     return (
         <div>
             <div className="WholeSection">
@@ -59,7 +69,9 @@ const SignIn = () => {
                                 name="phone"
                                 placeholder="Phone Number"
                                 value={phone}
+                                onInput={handlePhoneNumberInput}
                                 onChange={(e) => setPhone(e.target.value)}
+                                maxLength="13"
                                 required
                             />
                             <div className="passwordclass" style={{ position: "relative" }}>
