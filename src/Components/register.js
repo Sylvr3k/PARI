@@ -183,6 +183,11 @@ const Register = () => {
             return;
         }
 
+        if (formData.phone.length !== 10 && formData.phone.length !== 13) {
+            alert("Invalid NIDA Number");
+            return;
+        }
+
         if (formData.password !== formData.confirmpassword) {
             alert("Passwords Do Not Match!");
             return;
@@ -211,6 +216,16 @@ const Register = () => {
         }
     };
 
+    const handlePhoneNumberInput = (e) => {
+        let value = e.target.value;
+      
+        // Remove anything that isn't a number, +, or - (adjust as needed)
+        value = value.replace(/[^0-9+\-() ]/g, '');
+      
+        // Set the cleaned value to your input
+        e.target.value = value;
+    };
+
     return (
         <div>
             <div className="WholeSectionRegister">
@@ -236,12 +251,30 @@ const Register = () => {
                                    </div>
                             </div>
                             <div className="PhoneDesignation">
-                                <input id="phonetwo" type="text" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleInputChange} onInput={(e) => e.target.value = e.target.value.replace(/\D/, '')} pattern="\d*" required />
+                                <input
+                                    id="phonetwo"
+                                    type="text"
+                                    name="phone"
+                                    placeholder="Phone Number"
+                                    value={formData.phone}
+                                    onChange={handleInputChange}
+                                    onInput={handlePhoneNumberInput}
+                                    required
+                                />
                                 <input type="text" name="designation" placeholder="Designation" value={formData.designation} onChange={handleInputChange} required />
                             </div>
                             <div className="IdEmailPass">
                                 <div className="IdEmail">
-                                    <input type="text" name="id" placeholder="ID Number" value={formData.id} onChange={handleInputChange} onInput={(e) => e.target.value = e.target.value.replace(/\D/, '')} pattern="\d*" required />
+                                    <input
+                                        type="text"
+                                        name="id"
+                                        placeholder="ID Number"
+                                        value={formData.id}
+                                        onChange={handleInputChange}
+                                        onInput={(e) => e.target.value = e.target.value.replace(/\D/g, '')}
+                                        pattern="\d*"
+                                        required
+                                    />
                                     <input type="email" id="emailregister" name="email" placeholder="Email Address (optional)" value={formData.email} onChange={handleInputChange} />
                                 </div>
                                 <div className="PlusPassword">
