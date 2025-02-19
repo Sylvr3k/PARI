@@ -325,7 +325,9 @@ const Register = () => {
                                 </select>
                                 <select id="position" name="position" value={formData.position} onChange={handleInputChange} required>
                                     <option value="" disabled>Choose Your Position</option>
-                                    <option value="government organization/non government organization/farmer">Government Organization/Non Government Organization/Farmer</option>
+                                    <option value="government organization">Government Organization</option>
+                                    <option value="non government organization">Non Government Organization</option>
+                                    <option value="farmer">Farmer</option>
                                     <option value="skilled agricultural labourer">Skilled Agricultural Labourer</option>
                                 </select>
                                 <input type="text" name="extraone" placeholder="VEO's Name & Phone" value={formData.extraone} onChange={handleInputChange} required />
